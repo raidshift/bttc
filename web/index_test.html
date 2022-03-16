@@ -65,7 +65,7 @@
 
                 <div style="display: flex; align-items: center">
                   <img src="raidshift.png" height="32px" width="32px" alt="" />
-                  &nbsp;<span class="fw-bold fst-italic">raidshift</span>&nbsp;<span class="text-danger p-1" style="font-size: small;"><onlytest>TEST</onlytest></span>
+                  &nbsp;<span class="fw-bold fst-italic">raidshift</span>&nbsp;<span class="text-danger p-1" style="font-size: small"><onlytest>TEST</onlytest></span>
                 </div>
               </div>
 
@@ -83,7 +83,10 @@
               <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active border-top pt-4" id="pills-home" role="tabpanel">
                   <form id="deposit_form">
-                    <p class="fs-6 mb-1 fw-bold text-light"><span class="tokenName">USDT</span></p>
+                    <p class="fs-6 mb-1 fw-bold text-light">
+                      <span class="tokenName">USDT</span> <span style="font-size: x-small">(Your balance: <span class="balanceToken">0</span>)</span>
+                    </p>
+
                     <div class="btn-group mb-0" role="group">
                       <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_1" autocomplete="off" onclick="setDeposit('RS_USDT_TRON_1')" />
                       <label class="btn btn-outline-primary text-light fw-bold" for="btnradio_d_1" style="border-width: 2px">1</label>
@@ -104,7 +107,7 @@
                       <label class="btn btn-outline-primary text-light fw-bold" for="btnradio_d_100k" style="border-width: 2px">100k</label>
                     </div>
 
-                    <div class="p-0 mb-4 text-light fst-italic" style="font-size: x-small">Your balance: <span class="balanceToken">0</span> <span class="tokenName"></span></div>
+                    <div class="p-0 mb-4 text-light" style="font-size: x-small">Deposits: <span class="numDeposits">0</span> | Withdrawals: <span class="numWithdrawals">0</span></div>
 
                     <p class="fs-6 mb-1 fw-bold text-light">PRIVATE NOTE</p>
                     <div class="input-group mb-3">
@@ -147,12 +150,18 @@
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <a class="contractRSCodeURL text-secondary" href="" target="_blank" class="link-secondary"><i class="bi bi-box"></i>&nbsp;Contract</a>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <span class="text-secondary">build <build>2</build></span>
+            <span class="text-secondary">build <build>3</build></span>
             <istest hidden>1</istest>
           </div>
         </div>
       </div>
     </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/9.0.1/bignumber.min.js"
+      integrity="sha512-3dEpIO2t/6beQ77U/aYgVqJpmSkcvWuTFO4WhCQrSi2tSQV3U+k4plwSKlVOxKibsnd6Z/0evmClsMl4LVZ7Ig=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"
@@ -162,13 +171,6 @@
     ></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/9.0.1/bignumber.min.js"
-      integrity="sha512-3dEpIO2t/6beQ77U/aYgVqJpmSkcvWuTFO4WhCQrSi2tSQV3U+k4plwSKlVOxKibsnd6Z/0evmClsMl4LVZ7Ig=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.1/web3.min.js" integrity="sha512-GKw4QT/RccGJIwQxY3MhyiQ5pHrhQ8SuKFEafV+WcpOvtz7iYFQuQGFCvmGlHLctJTe8KrWU1FqvF7VOkEAJtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
