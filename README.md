@@ -1,10 +1,9 @@
 # raidshift
 
-A fully decentralized protocol for private transactions on BitTorrent-Chain.
+* A fully decentralized protocol for private transactions on BitTorrent-Chain.
+* Raidshift is a fork of tornado cash.
 
-Raidshift is a fork of tornado cash.
-
-Contracts:
+__Contracts:__
 
 VERIFIER = 0x4D20beC03dCDA796E66cc4D9DCCE7c710B68471C
 
