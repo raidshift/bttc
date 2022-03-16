@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
 });
 
+app.get('/test', (req, res) => {
+  res.sendFile(__dirname + '/index_test.html')
+});
+
 app.listen(port, () => {
   console.log(`raidshift listening on port ${port}`)
 });
