@@ -1,0 +1,23 @@
+{
+  "name": "raidshift_bttc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "web/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raidshift/bttc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raidshift/bttc/issues"
+  },
+  "homepage": "https://github.com/raidshift/bttc#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
