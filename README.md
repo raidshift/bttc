@@ -20,4 +20,4 @@ __Contracts (BTTC mainnet):__
 
 __Links__
 * https://raidshift.com (Raidshift on BTTC main net)
-* https://raidshift.com/test (Raidshift on BTTC test net
+* https://raidshift.com/test (Raidshift on BTTC test net)
