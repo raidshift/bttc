@@ -1,1 +1,796 @@
-const a0_0x2f66b0=a0_0x5d8f;(function(_0x533d49,_0x18633b){const _0x5e300f=a0_0x5d8f,_0x28004d=_0x533d49();while(!![]){try{const _0x24c6ac=parseInt(_0x5e300f(0x13e))/0x1*(-parseInt(_0x5e300f(0x177))/0x2)+-parseInt(_0x5e300f(0x11f))/0x3+-parseInt(_0x5e300f(0x117))/0x4*(parseInt(_0x5e300f(0x154))/0x5)+-parseInt(_0x5e300f(0x16c))/0x6+-parseInt(_0x5e300f(0x156))/0x7*(-parseInt(_0x5e300f(0x198))/0x8)+-parseInt(_0x5e300f(0x17a))/0x9*(-parseInt(_0x5e300f(0x1c3))/0xa)+-parseInt(_0x5e300f(0x132))/0xb*(-parseInt(_0x5e300f(0x18f))/0xc);if(_0x24c6ac===_0x18633b)break;else _0x28004d['push'](_0x28004d['shift']());}catch(_0x267757){_0x28004d['push'](_0x28004d['shift']());}}}(a0_0x2f3d,0x1d0d1));let NAME_TOKEN='USDT_t',DECIMALS_TOKEN=0x6,newDeposit;const MERKLE_TREE_HEIGHT=0x14;let circuit,proving_key,groth16,token=null,stable=null,raidshift=null,verifier=null,tronGridFeedInterval=null,balanceToken=null,allowanceToken=null;const DECIMALS_6=0x6,DECIMALS_2=0x2,DECIMALS_0=0x0;function a0_0x5d8f(_0x469894,_0xb6dbd4){const _0x2f3dad=a0_0x2f3d();return a0_0x5d8f=function(_0x5d8f2d,_0x453b74){_0x5d8f2d=_0x5d8f2d-0x113;let _0x4c9a61=_0x2f3dad[_0x5d8f2d];return _0x4c9a61;},a0_0x5d8f(_0x469894,_0xb6dbd4);}let web3;const TOKEN_ABI=[{'constant':!![],'inputs':[{'name':a0_0x2f66b0(0x1b8),'type':a0_0x2f66b0(0x1c4)}],'name':a0_0x2f66b0(0x12c),'outputs':[{'name':a0_0x2f66b0(0x116),'type':a0_0x2f66b0(0x15c)}],'type':a0_0x2f66b0(0x188)},{'constant':!![],'inputs':[{'name':a0_0x2f66b0(0x1b8),'type':a0_0x2f66b0(0x1c4)},{'name':a0_0x2f66b0(0x184),'type':a0_0x2f66b0(0x1c4)}],'name':a0_0x2f66b0(0x136),'outputs':[{'name':a0_0x2f66b0(0x136),'type':a0_0x2f66b0(0x15c)}],'type':a0_0x2f66b0(0x188)},{'constant':![],'inputs':[{'name':a0_0x2f66b0(0x184),'type':a0_0x2f66b0(0x1c4)},{'name':'value','type':a0_0x2f66b0(0x15c)}],'name':a0_0x2f66b0(0x147),'outputs':[{'name':a0_0x2f66b0(0x16b),'type':'bool'}],'type':'function'}],RS_ABI=[{'inputs':[{'name':'root','type':'bytes32'}],'name':a0_0x2f66b0(0x127),'outputs':[{'name':'','type':a0_0x2f66b0(0x183)}],'type':a0_0x2f66b0(0x188)},{'inputs':[{'name':a0_0x2f66b0(0x1cb),'type':a0_0x2f66b0(0x157)}],'name':a0_0x2f66b0(0x12f),'outputs':[{'name':'','type':a0_0x2f66b0(0x183)}],'type':'function'},{'constant':![],'inputs':[{'name':'commitment','type':a0_0x2f66b0(0x157)}],'name':a0_0x2f66b0(0x1ae),'outputs':[],'type':a0_0x2f66b0(0x188)},{'anonymous':![],'inputs':[{'indexed':!![],'internalType':a0_0x2f66b0(0x157),'name':a0_0x2f66b0(0x145),'type':a0_0x2f66b0(0x157)},{'indexed':![],'internalType':'uint32','name':a0_0x2f66b0(0x142),'type':a0_0x2f66b0(0x128)},{'indexed':![],'internalType':a0_0x2f66b0(0x15c),'name':a0_0x2f66b0(0x1a3),'type':a0_0x2f66b0(0x15c)}],'name':'Deposit','type':a0_0x2f66b0(0x165)},{'anonymous':![],'inputs':[{'indexed':![],'internalType':a0_0x2f66b0(0x1c4),'name':'to','type':a0_0x2f66b0(0x1c4)},{'indexed':![],'internalType':a0_0x2f66b0(0x157),'name':'nullifierHash','type':a0_0x2f66b0(0x157)}],'name':a0_0x2f66b0(0x1c0),'type':'event'},{'inputs':[{'name':a0_0x2f66b0(0x1b1),'type':'bytes'},{'name':'_root','type':'bytes32'},{'name':a0_0x2f66b0(0x1bb),'type':a0_0x2f66b0(0x157)},{'name':'_recipient','type':a0_0x2f66b0(0x1c4)},{'name':'_relayer','type':a0_0x2f66b0(0x1c4)},{'internalType':a0_0x2f66b0(0x15c),'name':a0_0x2f66b0(0x1a5),'type':a0_0x2f66b0(0x15c)},{'name':'_refund','type':'uint256'}],'name':a0_0x2f66b0(0x124),'outputs':[],'stateMutability':a0_0x2f66b0(0x1ac),'type':'function'}],VERIFIER_ABI=[{'inputs':[{'name':a0_0x2f66b0(0x17b),'type':'bytes'},{'name':a0_0x2f66b0(0x164),'type':a0_0x2f66b0(0x1a6)}],'name':a0_0x2f66b0(0x17f),'outputs':[{'name':'','type':a0_0x2f66b0(0x183)}],'type':'function'}];let CHAIN_ID,CHAIN_NAME,CHAIN_RPC_URL,BTTSCAN_URL_PREFIX,CONTRACT_VERIFIER,CONTRACT_TOKEN,CONTRACT_RS_USDT_TRON_1,CONTRACT_RS_USDT_TRON_10,CONTRACT_RS_USDT_TRON_100,CONTRACT_RS_USDT_TRON_1K,CONTRACT_RS_USDT_TRON_10K,CONTRACT_RS_USDT_TRON_100K;$(a0_0x2f66b0(0x11c))[a0_0x2f66b0(0x19b)]()=='1'&&(CHAIN_ID=0x405,CHAIN_NAME=a0_0x2f66b0(0x172),CHAIN_RPC_URL=a0_0x2f66b0(0x186),BTTSCAN_URL_PREFIX=a0_0x2f66b0(0x122),CONTRACT_VERIFIER=a0_0x2f66b0(0x152),CONTRACT_TOKEN=a0_0x2f66b0(0x134),CONTRACT_RS_USDT_TRON_1='0x39a95b5bbb52F1C52B863c78aF774950D9C7C645',CONTRACT_RS_USDT_TRON_10=a0_0x2f66b0(0x18a),CONTRACT_RS_USDT_TRON_100=a0_0x2f66b0(0x130),CONTRACT_RS_USDT_TRON_1K=a0_0x2f66b0(0x1b3),CONTRACT_RS_USDT_TRON_10K=a0_0x2f66b0(0x1b4),CONTRACT_RS_USDT_TRON_100K=a0_0x2f66b0(0x1c8));$('istest')['text']()=='0'&&(CHAIN_ID=0xc7,CHAIN_NAME='Bittorrent\x20Chain',CHAIN_RPC_URL=a0_0x2f66b0(0x176),BTTSCAN_URL_PREFIX='https://bttcscan.com',CONTRACT_VERIFIER=a0_0x2f66b0(0x13b),CONTRACT_TOKEN=a0_0x2f66b0(0x190),CONTRACT_RS_USDT_TRON_1=a0_0x2f66b0(0x19e),CONTRACT_RS_USDT_TRON_10=a0_0x2f66b0(0x189),CONTRACT_RS_USDT_TRON_100=a0_0x2f66b0(0x18c),CONTRACT_RS_USDT_TRON_1K=a0_0x2f66b0(0x1c2),CONTRACT_RS_USDT_TRON_10K='0xAbb19F930d18a8AeAfbb5A3F1d5E52D0fC7b5dB9',CONTRACT_RS_USDT_TRON_100K='0x6572Bed267B45E498bB5b46eaB2B067aE6b8a8c6');const CHAIN_SYMBOL=a0_0x2f66b0(0x181),RS_USDT_TRON_1=a0_0x2f66b0(0x179),RS_USDT_TRON_10=a0_0x2f66b0(0x153),RS_USDT_TRON_100=a0_0x2f66b0(0x166),RS_USDT_TRON_1K='RS_USDT_TRON_1K',RS_USDT_TRON_10K=a0_0x2f66b0(0x12d),RS_USDT_TRON_100K=a0_0x2f66b0(0x11d);let currentAccount,currentRSAddress,currentDepositStr,d_amount,feedInterval=null;const TRANSACTION_URL=BTTSCAN_URL_PREFIX+a0_0x2f66b0(0x160);cropZerosRegEx=/(\.[0-9]*[1-9])0+$|\.0*$/;function shortenString(_0x52e83d){const _0x33ca80=a0_0x2f66b0;let _0x2541bf=_0x52e83d;return _0x2541bf['substr'](0x0,0x5)+'...'+_0x2541bf[_0x33ca80(0x137)](_0x2541bf[_0x33ca80(0x1c1)]-0x5,_0x2541bf[_0x33ca80(0x1c1)]);}function a0_0x2f3d(){const _0x199890=['BTT','ready','bool','spender','isGreaterThan','https://pre-rpc.bt.io/','value','function','0x53Ae818426FCEfc219de3255601d7E4f0cDce3Ea','0xB9CBEf6e3CC883EF83C7F769bD479F479eC4BB58','methods','0x252A89516D2ad6E4Fad4936D6aF34293A6b05c73','Initialization:\x20','select','60JQBeIh','0xdB28719F7f938507dBfe4f0eAe55668903D34a15','\x20balance\x20is\x20too\x20low</span>','Contract','handleAccountsChanged','<span\x20class=\x22text-warning\x22>','</a>\x20confirmed.</span>','snarkProof\x20=\x20','0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF','3136fsHhvG','withdraw.json','prototype','text','div','withdraw_proving_key.bin','0x9c1B1e89e9ba21652C5B6618a0Ad7Db701877F3e','.nav-link','balanceFeedInterval\x20cleared','SEND\x20TRANSACTION\x20(','.d_validationMsg','timestamp','Deposit','_fee','uint256[6]','</a>\x20...</span>','slice','args\x20=\x20','startsWith','.balanceToken','nonpayable','html','deposit','#withdraw_btn','.d_amount','_proof','href','0x0487745cCe1125875666FbAB3e6984507FbB41B8','0xD896bb043C8364fC2D165436efBD2764d518602e','confirmation','#withdraw_note','getElementById','owner','addEventListener','getPastEvents','_nullifierHash','.account','fee','add\x20chain','_0x','Withdrawal','length','0x527e90bC235A47811f2D301B04549e208aDa2b87','10QnoFuy','address','call','relayer','.w_validationMsg','0x60330aEF4216cB1Fe0843e35c3F62E386c9A9B42','<span\x20class=\x22fw-bold\x22>Deposit\x20','eth_requestAccounts','nullifierHash','reload','toFixed','root','balance','17564OtgLbS','toString','replace',':\x20Transaction\x20<a\x20href=\x22','accountsChanged','istest','RS_USDT_TRON_100K','split','75558MnEGbX','<div\x20class=\x22spinner-border\x20spinner-border-xs\x20text-warning\x22\x20role=\x22status\x22><span\x20class=\x22visually-hidden\x22>Waiting\x20for\x20confirmation\x20...</span></div><span\x20class=\x22text-warning\x22>&nbsp;','#code','https://testnet.bttcscan.com','location','withdraw','toSolidityInput','clipboard','isKnownRoot','uint32','<span\x20class=\x22text-warning\x22>The\x20note\x20is\x20already\x20spent</span>','<span\x20class=\x22text-warning\x22>There\x20is\x20no\x20deposit\x20for\x20this\x20note</span>','<span\x20class=\x22text-warning\x22>Merkle\x20tree\x20is\x20corrupted</span>','balanceOf','RS_USDT_TRON_10K','nullifier','isSpent','0xD8ad88AC0496dc514DaAbad7ccF68190BC54AaA2','.d_validationMsg2','341209RkcqVW','preimage','0x7b906030735435422675e0679bc02dae7dfc71da','prop','allowance','substr','<div\x20class=\x22spinner-border\x20spinner-border-xs\x20text-warning\x22\x20role=\x22status\x22><span\x20class=\x22visually-hidden\x22>Waiting\x20for\x20signature\x20...</span></div><span\x20class=\x22text-warning\x22>&nbsp;','.numDeposits','then','0x4D20beC03dCDA796E66cc4D9DCCE7c710B68471C','<span\x20class=\x22fw-bold\x22>Withdraw\x20',':\x20Waiting\x20for\x20signature\x20...</span>','10928MHRgKV','networkVersion','catch','disabled','leafIndex','/address/','sort','commitment','STARTING\x20FEED\x20','approve','recipient','val','transactionHash',')\x20END',':\x20Waiting\x20for\x20confirmation\x20of\x20transaction\x20<a\x20href=\x22','<div\x20class=\x22spinner-border\x20spinner-border-xs\x20text-warning\x22\x20role=\x22status\x22><span\x20class=\x22visually-hidden\x22>Generating\x20zk-SNARK\x20proof\x20...</span></div><span\x20class=\x22text-warning\x22>&nbsp;Generating\x20zk-SNARK\x20proof\x20...</span>','secret','latest','eth','send','0xB04627e863601Aa9283684aAda0B437B4A5C0f73','RS_USDT_TRON_10','215mWyCpP','refund','2338kxbneD','bytes32','json','</span>','isLessThan','arrayBuffer','uint256','querySelectorAll','readBalanceAndAllowance:\x20','connect','/tx/','submit','log','find','input','event','RS_USDT_TRON_100','message','.tokenName','<span\x20class=\x22text-warning\x22>Invalid\x20zk-SNARK\x20proof</span>','#deposit_note','approved','316404SkTJRy','returnValues','.numWithdrawals','#deposit_btn','stopPropagation','<span\x20class=\x22text-warning\x22>The\x20note\x20starts\x20with\x20an\x20invalid\x20prefix</span>','Bittorrent\x20Chain\x20(Test)','request','nullifierHex','<span\x20class=\x22text-warning\x22>Your\x20','https://rpc.bt.io','2keRAVm','ethereum','RS_USDT_TRON_1','995679mRGfzW','proof','Account\x20=\x20','preventDefault','\x22\x20target=\x22_blank\x22\x20class=\x22text-warning\x22>','verifyProof','genWitnessAndProve'];a0_0x2f3d=function(){return _0x199890;};return a0_0x2f3d();}function valueMoveCommaLeft(_0x21a8f8,_0x4889cd){const _0x4de9a6=a0_0x2f66b0;return BigNumber(_0x21a8f8)[_0x4de9a6(0x19c)](0xa**_0x4889cd);}function adjustDecimals(_0x24825a){const _0x46fb19=a0_0x2f66b0;let _0x49f9ea,_0x5b9f1a=BigNumber(_0x24825a);if(_0x5b9f1a[_0x46fb19(0x15a)](0x1))_0x49f9ea=DECIMALS_6;else _0x5b9f1a[_0x46fb19(0x15a)](0x2710)?_0x49f9ea=DECIMALS_2:_0x49f9ea=DECIMALS_0;return _0x5b9f1a[_0x46fb19(0x114)](_0x49f9ea)[_0x46fb19(0x119)](cropZerosRegEx,'$1');}function numberWithCommas(_0x59586f){const _0x408961=a0_0x2f66b0;var _0x5ab605=_0x59586f[_0x408961(0x118)]()[_0x408961(0x11e)]('.');return _0x5ab605[0x0]=_0x5ab605[0x0]['replace'](/\B(?=(\d{3})+(?!\d))/g,','),_0x5ab605['join']('.');}function noteToClipBoard(){const _0x27c44a=a0_0x2f66b0;var _0x132e2c=document[_0x27c44a(0x1b7)]('deposit_note');_0x132e2c[_0x27c44a(0x18e)](),_0x132e2c['setSelectionRange'](0x0,0x1869f),navigator[_0x27c44a(0x126)]['writeText'](_0x132e2c[_0x27c44a(0x187)]);}function setDeposit(_0x6dbf5c){const _0x55cb4d=a0_0x2f66b0;switch(_0x6dbf5c){case RS_USDT_TRON_1:currentRSAddress=CONTRACT_RS_USDT_TRON_1,d_amount=0xf4240;break;case RS_USDT_TRON_10:currentRSAddress=CONTRACT_RS_USDT_TRON_10,d_amount=0x989680;break;case RS_USDT_TRON_100:currentRSAddress=CONTRACT_RS_USDT_TRON_100,d_amount=0x5f5e100;break;case RS_USDT_TRON_1K:currentRSAddress=CONTRACT_RS_USDT_TRON_1K,d_amount=0x3b9aca00;break;case RS_USDT_TRON_10K:currentRSAddress=CONTRACT_RS_USDT_TRON_10K,d_amount=0x2540be400;break;case RS_USDT_TRON_100K:currentRSAddress=CONTRACT_RS_USDT_TRON_100K,d_amount=0x174876e800;break;default:throw'Invalid\x20Deposit\x20Contract';}currentDepositStr=_0x6dbf5c,resetDepositNote(currentDepositStr),$(_0x55cb4d(0x1b0))[_0x55cb4d(0x19b)](numberWithCommas(BigNumber(d_amount)[_0x55cb4d(0x19c)](0xa**DECIMALS_TOKEN))+'\x20'+NAME_TOKEN),$(_0x55cb4d(0x1a2))[_0x55cb4d(0x1ad)](''),$(_0x55cb4d(0x131))[_0x55cb4d(0x1ad)](''),$(_0x55cb4d(0x1c7))['html'](''),$('.contractRSCodeURL')['prop'](_0x55cb4d(0x1b2),BTTSCAN_URL_PREFIX+_0x55cb4d(0x143)+currentRSAddress+_0x55cb4d(0x121)),raidshift=new web3[(_0x55cb4d(0x150))][(_0x55cb4d(0x192))](RS_ABI,currentRSAddress),readBalanceAndAllowance();}async function readBalanceAndAllowance(){const _0x3fcd6a=a0_0x2f66b0;try{const _0x22fed0=await raidshift[_0x3fcd6a(0x1ba)](_0x3fcd6a(0x1a4),{'fromBlock':0x0,'toBlock':_0x3fcd6a(0x14f)});await new Promise(_0x13d5fb=>setTimeout(_0x13d5fb,0x64));const _0x3e669c=await raidshift[_0x3fcd6a(0x1ba)]('Withdrawal',{'fromBlock':0x0,'toBlock':'latest'});await new Promise(_0x32732e=>setTimeout(_0x32732e,0x64)),await token['methods'][_0x3fcd6a(0x12c)](currentAccount)[_0x3fcd6a(0x1c5)]({'from':currentAccount})[_0x3fcd6a(0x13a)](function(_0x21a588){balanceToken=_0x21a588;}),await new Promise(_0x48b16d=>setTimeout(_0x48b16d,0x64)),await token[_0x3fcd6a(0x18b)][_0x3fcd6a(0x136)](currentAccount,currentRSAddress)['call']({'from':currentAccount})[_0x3fcd6a(0x13a)](function(_0x232b40){allowanceToken=_0x232b40;}),$(_0x3fcd6a(0x1ab))[_0x3fcd6a(0x19b)](numberWithCommas(valueMoveCommaLeft(balanceToken,DECIMALS_TOKEN)[_0x3fcd6a(0x114)](DECIMALS_2)[_0x3fcd6a(0x119)](cropZerosRegEx,'$1'))),$(_0x3fcd6a(0x139))[_0x3fcd6a(0x19b)](_0x22fed0[_0x3fcd6a(0x1c1)]),$(_0x3fcd6a(0x16e))[_0x3fcd6a(0x19b)](_0x3e669c[_0x3fcd6a(0x1c1)]);}catch(_0x512b31){console[_0x3fcd6a(0x162)](_0x3fcd6a(0x15e)+_0x512b31);throw _0x512b31;}}async function startFeed(){const _0x3ae762=a0_0x2f66b0;try{feedInterval==null&&(console['log'](_0x3ae762(0x146)),await readBalanceAndAllowance(),feedInterval=setInterval(async function(){await readBalanceAndAllowance();},0x2710));}catch(_0x110ba0){console[_0x3ae762(0x162)](_0x110ba0);}}function stopFeed(){const _0x210810=a0_0x2f66b0;console[_0x210810(0x162)]('STOPPING\x20FEED\x20'),feedInterval!=null&&(clearInterval(feedInterval),feedInterval=null,console[_0x210810(0x162)](_0x210810(0x1a0)));}function showConnectionMsg(_0x1333b9){const _0x208fce=a0_0x2f66b0;$('.connect-msg')[_0x208fce(0x135)]('hidden',!_0x1333b9);}function enableControls(_0x3dbf6e){const _0x165653=a0_0x2f66b0;$(_0x165653(0x16f))[_0x165653(0x135)](_0x165653(0x141),!_0x3dbf6e),$(_0x165653(0x1af))['prop'](_0x165653(0x141),!_0x3dbf6e),$('.btn-check')[_0x165653(0x135)](_0x165653(0x141),!_0x3dbf6e),$(_0x165653(0x19f))[_0x165653(0x135)](_0x165653(0x141),!_0x3dbf6e);}function resetDepositNote(_0x439982){const _0x4cc531=a0_0x2f66b0;newDeposit=createDeposit({'nullifier':rbigint(0x1f),'secret':rbigint(0x1f)});const _0x12b814=_0x439982+'_'+toHex(newDeposit[_0x4cc531(0x133)],0x3e);$(_0x4cc531(0x16a))['val'](_0x12b814),$(_0x4cc531(0x1b6))[_0x4cc531(0x149)]('');}let INIT_ERROR=![];$(document)[a0_0x2f66b0(0x182)](async function(){const _0x51a197=a0_0x2f66b0;try{showConnectionMsg(!![]),$(_0x51a197(0x168))[_0x51a197(0x19b)](NAME_TOKEN),await setChain(),await startFeed(),enableControls(!![]);}catch(_0x105c33){INIT_ERROR=!![],console[_0x51a197(0x162)](_0x51a197(0x18d)+_0x105c33),showConnectionMsg(!![]),enableControls(![]),stopFeed();}}),ethereum['on']('chainChanged',handleChainChanged),ethereum['on'](a0_0x2f66b0(0x11b),handleAccountsChanged);async function setChain(){const _0x49b02e=a0_0x2f66b0;if(window[_0x49b02e(0x178)][_0x49b02e(0x13f)]!==CHAIN_ID)try{await window['ethereum'][_0x49b02e(0x173)]({'method':'wallet_switchEthereumChain','params':[{'chainId':'0x'+CHAIN_ID[_0x49b02e(0x118)](0x10)}]});}catch(_0x27ca10){console['log'](_0x49b02e(0x1be)),await window[_0x49b02e(0x178)][_0x49b02e(0x173)]({'method':'wallet_addEthereumChain','params':[{'chainName':CHAIN_NAME,'chainId':'0x'+CHAIN_ID[_0x49b02e(0x118)](0x10),'nativeCurrency':{'name':CHAIN_SYMBOL,'decimals':0x12,'symbol':CHAIN_SYMBOL},'rpcUrls':[CHAIN_RPC_URL]}]});}await connect(),web3=new Web3(Web3['givenProvider']),token=new web3[(_0x49b02e(0x150))][(_0x49b02e(0x192))](TOKEN_ABI,CONTRACT_TOKEN),verifier=new web3[(_0x49b02e(0x150))][(_0x49b02e(0x192))](VERIFIER_ABI,CONTRACT_VERIFIER),setDeposit(RS_USDT_TRON_10);}function handleChainChanged(_0x3f8b3d){const _0x1c979a=a0_0x2f66b0;window[_0x1c979a(0x123)]['reload']();}function handleAccountsChanged(_0x1bebf0){const _0x2d54e6=a0_0x2f66b0;console[_0x2d54e6(0x162)](_0x2d54e6(0x193));if(INIT_ERROR||_0x1bebf0[_0x2d54e6(0x1c1)]===0x0)window[_0x2d54e6(0x123)][_0x2d54e6(0x113)]();else _0x1bebf0[0x0]!==currentAccount&&(currentAccount=_0x1bebf0[0x0],console[_0x2d54e6(0x162)](_0x2d54e6(0x17c)+_0x1bebf0[0x0]),showConnectionMsg(![]),$(_0x2d54e6(0x1bc))[_0x2d54e6(0x19b)](shortenString(_0x1bebf0[0x0])));}async function connect(){const _0xf297cd=a0_0x2f66b0;console[_0xf297cd(0x162)](_0xf297cd(0x15f)),await ethereum[_0xf297cd(0x173)]({'method':_0xf297cd(0x1ca)})[_0xf297cd(0x13a)](handleAccountsChanged)[_0xf297cd(0x140)](_0x1589de=>{const _0x4ccbc1=_0xf297cd;console[_0x4ccbc1(0x162)](_0x1589de);throw _0x1589de;});}async function sendTransaction(_0x3fa5b2,_0x95e7df,_0x44243d){const _0x17d326=a0_0x2f66b0;console[_0x17d326(0x162)](_0x17d326(0x1a1)+_0x3fa5b2+')\x20START');let _0x5e9454=![];$(_0x44243d)[_0x17d326(0x1ad)](_0x17d326(0x138)+_0x3fa5b2+_0x17d326(0x13d));try{let _0x39807a;await _0x95e7df()[_0x17d326(0x151)]({'from':currentAccount})['on'](_0x17d326(0x14a),function(_0x303650){const _0x5e07cc=_0x17d326;_0x39807a=_0x303650,$(_0x44243d)[_0x5e07cc(0x1ad)](_0x5e07cc(0x120)+_0x3fa5b2+_0x5e07cc(0x14c)+TRANSACTION_URL+_0x39807a+'\x22\x20target=\x22_blank\x22\x20class=\x22text-warning\x22>'+shortenString(_0x39807a)+_0x5e07cc(0x1a7));})['on'](_0x17d326(0x1b5),function(_0x34b8b9){const _0x3cb5c2=_0x17d326;$(_0x44243d)[_0x3cb5c2(0x1ad)](_0x3cb5c2(0x194)+_0x3fa5b2+_0x3cb5c2(0x11a)+TRANSACTION_URL+_0x39807a+_0x3cb5c2(0x17e)+shortenString(_0x39807a)+_0x3cb5c2(0x195));});}catch(_0x2db01d){let _0x46214e=_0x2db01d[_0x17d326(0x167)];return $(_0x44243d)['html']('<span\x20class=\x22text-warning\x22>'+_0x46214e+_0x17d326(0x159)),[!![],!![]];}return console[_0x17d326(0x162)](_0x17d326(0x1a1)+_0x3fa5b2+_0x17d326(0x14b)),[![],_0x5e9454];}$(function(){'use strict';const _0x38138b=a0_0x2f66b0;var _0x29d7cd=document[_0x38138b(0x15d)]('#deposit_form');Array[_0x38138b(0x19a)][_0x38138b(0x1a8)]['call'](_0x29d7cd)['forEach'](function(_0x285e95){const _0x3b8732=_0x38138b;_0x285e95[_0x3b8732(0x1b9)](_0x3b8732(0x161),async function(_0x58c045){const _0x1f17b1=_0x3b8732;_0x58c045[_0x1f17b1(0x17d)](),_0x58c045[_0x1f17b1(0x170)]();let _0x498170=![],_0x4501ce=![];enableControls(![]),$(_0x1f17b1(0x1a2))[_0x1f17b1(0x1ad)](''),$(_0x1f17b1(0x131))['html'](''),console[_0x1f17b1(0x162)](_0x1f17b1(0x147)),BigNumber(d_amount)[_0x1f17b1(0x185)](balanceToken)&&($(_0x1f17b1(0x1a2))[_0x1f17b1(0x1ad)](_0x1f17b1(0x175)+NAME_TOKEN+_0x1f17b1(0x191)),_0x498170=!![]),_0x498170==![]&&(BigNumber(d_amount)[_0x1f17b1(0x185)](allowanceToken)&&([_0x498170,_0x4501ce]=await sendTransaction('<span\x20class=\x22fw-bold\x22>Deposit\x20Approval\x20for\x20'+NAME_TOKEN+_0x1f17b1(0x159),function(){const _0x2e5066=_0x1f17b1;return token[_0x2e5066(0x18b)][_0x2e5066(0x147)](currentRSAddress,_0x2e5066(0x197));},'.d_validationMsg'))),console[_0x1f17b1(0x162)](_0x1f17b1(0x1ae)),_0x498170==![]&&_0x4501ce==![]&&([_0x498170,_0x4501ce]=await sendTransaction(_0x1f17b1(0x1c9)+numberWithCommas(BigNumber(d_amount)['div'](0xa**DECIMALS_TOKEN))+'\x20'+NAME_TOKEN+'</span>',function(){const _0x5b7f1c=_0x1f17b1;return raidshift[_0x5b7f1c(0x18b)]['deposit'](newDeposit['commitmentHex']);},_0x1f17b1(0x131))),enableControls(!![]);},![]);});});async function fetchSNARKdata(){const _0x1df2b4=a0_0x2f66b0;!circuit&&(circuit=await(await fetch(_0x1df2b4(0x199)))[_0x1df2b4(0x158)]()),!proving_key&&(proving_key=await(await fetch(_0x1df2b4(0x19d)))[_0x1df2b4(0x15b)]()),!groth16&&(groth16=await buildGroth16());}$(function(){'use strict';const _0x87a251=a0_0x2f66b0;var _0x1b94d1=document[_0x87a251(0x15d)]('#withdraw_form');Array[_0x87a251(0x19a)][_0x87a251(0x1a8)][_0x87a251(0x1c5)](_0x1b94d1)['forEach'](function(_0x11f024){const _0x1afa63=_0x87a251;_0x11f024[_0x1afa63(0x1b9)](_0x1afa63(0x161),async function(_0x35b070){const _0x309fd8=_0x1afa63;_0x35b070[_0x309fd8(0x17d)](),_0x35b070[_0x309fd8(0x170)]();let _0x468b29=![],_0x5a807a=![];enableControls(![]);let _0x7bb203;const _0xbca639=$(_0x309fd8(0x1b6))[_0x309fd8(0x149)]();let _0x3fbd32;if(_0xbca639['startsWith'](RS_USDT_TRON_1+_0x309fd8(0x1bf)))_0x3fbd32=CONTRACT_RS_USDT_TRON_1;else{if(_0xbca639[_0x309fd8(0x1aa)](RS_USDT_TRON_10+_0x309fd8(0x1bf)))_0x3fbd32=CONTRACT_RS_USDT_TRON_10;else{if(_0xbca639[_0x309fd8(0x1aa)](RS_USDT_TRON_100+_0x309fd8(0x1bf)))_0x3fbd32=CONTRACT_RS_USDT_TRON_100;else{if(_0xbca639[_0x309fd8(0x1aa)](RS_USDT_TRON_1K+_0x309fd8(0x1bf)))_0x3fbd32=CONTRACT_RS_USDT_TRON_1K;else{if(_0xbca639[_0x309fd8(0x1aa)](RS_USDT_TRON_10K+_0x309fd8(0x1bf)))_0x3fbd32=CONTRACT_RS_USDT_TRON_10K;else _0xbca639[_0x309fd8(0x1aa)](RS_USDT_TRON_100K+'_0x')?_0x3fbd32=CONTRACT_RS_USDT_TRON_100K:(_0x468b29=!![],$('.w_validationMsg')[_0x309fd8(0x1ad)](_0x309fd8(0x171)));}}}}console[_0x309fd8(0x162)](_0x3fbd32);if(_0x468b29==![]){let _0xf11bcf=_0xbca639['replace'](/(.*)(0x.*)/,'$2');try{_0x7bb203=parseNote(_0xf11bcf);}catch(_0x20a123){$('.w_validationMsg')[_0x309fd8(0x1ad)](_0x309fd8(0x194)+_0x20a123[_0x309fd8(0x167)]+_0x309fd8(0x159)),_0x468b29=!![];}}let _0x3164e1;if(_0x468b29==![])try{_0x3164e1=new web3[(_0x309fd8(0x150))][(_0x309fd8(0x192))](RS_ABI,_0x3fbd32);}catch(_0x34ac00){$(_0x309fd8(0x1c7))[_0x309fd8(0x1ad)](_0x309fd8(0x194)+_0x34ac00[_0x309fd8(0x167)]+_0x309fd8(0x159)),f;}let _0x44222b,_0x1814c1;if(_0x468b29==![]){$(_0x309fd8(0x1c7))[_0x309fd8(0x1ad)](_0x309fd8(0x14d));const _0x5f1ddc=await _0x3164e1['getPastEvents'](_0x309fd8(0x1a4),{'fromBlock':0x0,'toBlock':_0x309fd8(0x14f)}),_0x9c9234=_0x5f1ddc[_0x309fd8(0x144)]((_0x165b2b,_0x5e95e1)=>_0x165b2b[_0x309fd8(0x16d)][_0x309fd8(0x142)]-_0x5e95e1[_0x309fd8(0x16d)][_0x309fd8(0x142)])['map'](_0x5932a7=>_0x5932a7['returnValues'][_0x309fd8(0x145)]);_0x44222b=new merkleTree(MERKLE_TREE_HEIGHT,_0x9c9234);let _0x36ae75=_0x5f1ddc[_0x309fd8(0x163)](_0x205f22=>_0x205f22['returnValues'][_0x309fd8(0x145)]===toHex(_0x7bb203[_0x309fd8(0x145)])),_0x7a307e=_0x36ae75?_0x36ae75['returnValues'][_0x309fd8(0x142)]:-0x1;_0x7a307e<0x0?($(_0x309fd8(0x1c7))[_0x309fd8(0x1ad)](_0x309fd8(0x12a)),_0x468b29=!![]):_0x1814c1=_0x7a307e;}if(_0x468b29==![]&&_0x5a807a==![])try{let _0x215938;await _0x3164e1[_0x309fd8(0x18b)]['isKnownRoot'](toHex(_0x44222b[_0x309fd8(0x115)]()))[_0x309fd8(0x1c5)]()[_0x309fd8(0x13a)](function(_0x1197d5){_0x215938=_0x1197d5;}),_0x215938==![]&&($(_0x309fd8(0x1c7))['html'](_0x309fd8(0x12b)),_0x468b29=!![]);}catch(_0x54289c){$('.w_validationMsg')[_0x309fd8(0x1ad)](_0x309fd8(0x194)+_0x54289c['message']+_0x309fd8(0x159)),_0x468b29=!![];}if(_0x468b29==![]&&_0x5a807a==![])try{let _0x4980d1;await _0x3164e1[_0x309fd8(0x18b)]['isSpent'](_0x7bb203[_0x309fd8(0x174)])[_0x309fd8(0x1c5)]()[_0x309fd8(0x13a)](function(_0x18c2ad){_0x4980d1=_0x18c2ad;}),_0x4980d1==!![]&&($(_0x309fd8(0x1c7))['html'](_0x309fd8(0x129)),_0x468b29=!![]);}catch(_0x187a6a){$(_0x309fd8(0x1c7))['html'](_0x309fd8(0x194)+_0x187a6a[_0x309fd8(0x167)]+_0x309fd8(0x159)),_0x468b29=!![];}let _0x57dd9b,_0x587229;if(_0x468b29==![]&&_0x5a807a==![]){const {pathElements:_0x1478ea,pathIndices:_0x3c2e19}=_0x44222b['path'](_0x1814c1),_0x34c3e3={'root':_0x44222b[_0x309fd8(0x115)](),'nullifierHash':_0x7bb203['nullifierHash'],'recipient':bigInt(currentAccount),'relayer':0x0,'fee':0x0,'refund':0x0,'nullifier':_0x7bb203[_0x309fd8(0x12e)],'secret':_0x7bb203[_0x309fd8(0x14e)],'pathElements':_0x1478ea,'pathIndices':_0x3c2e19};try{console['log']('zk-SNARK\x20proof\x20begin'),await fetchSNARKdata();const _0x4263ce=await websnarkUtils[_0x309fd8(0x180)](groth16,_0x34c3e3,circuit,proving_key),{proof:_0xdcaa2a}=websnarkUtils[_0x309fd8(0x125)](_0x4263ce);_0x57dd9b=_0xdcaa2a,console[_0x309fd8(0x162)]('zk-SNARK\x20proof\x20end'),_0x587229=[toHex(_0x34c3e3['root']),toHex(_0x34c3e3[_0x309fd8(0x1cb)]),toHex(_0x34c3e3[_0x309fd8(0x148)],0x14),toHex(_0x34c3e3[_0x309fd8(0x1c6)],0x14),_0x34c3e3[_0x309fd8(0x1bd)],_0x34c3e3[_0x309fd8(0x155)]];}catch(_0x2783d6){$(_0x309fd8(0x1c7))[_0x309fd8(0x1ad)](_0x309fd8(0x194)+_0x2783d6['message']+_0x309fd8(0x159)),console[_0x309fd8(0x162)](_0x2783d6),_0x468b29=!![];}}if(_0x468b29==![]&&_0x5a807a==![]){console[_0x309fd8(0x162)](_0x309fd8(0x196)+_0x57dd9b),console[_0x309fd8(0x162)](_0x309fd8(0x1a9)+_0x587229);let _0x161378=![];await verifier['methods']['verifyProof'](_0x57dd9b,_0x587229)['call']()[_0x309fd8(0x13a)](function(_0x2e8856){_0x161378=_0x2e8856;}),console['log']('validProof:\x20'+_0x161378),!_0x161378&&($(_0x309fd8(0x1c7))[_0x309fd8(0x1ad)](_0x309fd8(0x169)),_0x468b29=!![]);}_0x468b29==![]&&_0x5a807a==![]&&([_0x468b29,_0x5a807a]=await sendTransaction(_0x309fd8(0x13c)+NAME_TOKEN+_0x309fd8(0x159),function(){const _0x3657e4=_0x309fd8;return _0x3164e1[_0x3657e4(0x18b)][_0x3657e4(0x124)](_0x57dd9b,..._0x587229);},'.w_validationMsg')),resetDepositNote(currentDepositStr),enableControls(!![]);},![]);});});
+let NAME_TOKEN = "USDT_t";
+let DECIMALS_TOKEN = 6;
+
+let newDeposit;
+const MERKLE_TREE_HEIGHT = 20;
+let circuit;
+let proving_key;
+let groth16;
+
+let token = null;
+let stable = null;
+let raidshift = null;
+let verifier = null;
+
+let tronGridFeedInterval = null;
+
+let balanceToken = null;
+let allowanceToken = null;
+
+const DECIMALS_6 = 6;
+const DECIMALS_2 = 2;
+const DECIMALS_0 = 0;
+
+// Ethereum
+let web3;
+
+const TOKEN_ABI = [
+  // balanceOf
+  { constant: true, inputs: [{ name: "owner", type: "address" }], name: "balanceOf", outputs: [{ name: "balance", type: "uint256" }], type: "function" },
+  // allowance
+  {
+    constant: true,
+    inputs: [
+      { name: "owner", type: "address" },
+      { name: "spender", type: "address" },
+    ],
+    name: "allowance",
+    outputs: [{ name: "allowance", type: "uint256" }],
+    type: "function",
+  },
+  // approve
+  {
+    constant: false,
+    inputs: [
+      { name: "spender", type: "address" },
+      { name: "value", type: "uint256" },
+    ],
+    name: "approve",
+    outputs: [{ name: "approved", type: "bool" }],
+    type: "function",
+  },
+];
+
+const RS_ABI = [
+  // isKnownRoot
+  {
+    inputs: [
+      {
+        name: "root",
+        type: "bytes32",
+      },
+    ],
+    name: "isKnownRoot",
+    outputs: [
+      {
+        name: "",
+        type: "bool",
+      },
+    ],
+    type: "function",
+  },
+  // isSpent
+  {
+    inputs: [
+      {
+        name: "nullifierHash",
+        type: "bytes32",
+      },
+    ],
+    name: "isSpent",
+    outputs: [
+      {
+        name: "",
+        type: "bool",
+      },
+    ],
+    type: "function",
+  },
+  // deposit
+  { constant: false, inputs: [{ name: "commitment", type: "bytes32" }], name: "deposit", outputs: [], type: "function" },
+  // event deposit
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "bytes32",
+        name: "commitment",
+        type: "bytes32",
+      },
+      {
+        indexed: false,
+        internalType: "uint32",
+        name: "leafIndex",
+        type: "uint32",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "timestamp",
+        type: "uint256",
+      },
+    ],
+    name: "Deposit",
+    type: "event",
+  },
+  // event Withdrawal
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "bytes32",
+        name: "nullifierHash",
+        type: "bytes32",
+      },
+    ],
+    name: "Withdrawal",
+    type: "event",
+  },
+  // withdraw
+  {
+    inputs: [
+      {
+        name: "_proof",
+        type: "bytes",
+      },
+      {
+        name: "_root",
+        type: "bytes32",
+      },
+      {
+        name: "_nullifierHash",
+        type: "bytes32",
+      },
+      {
+        name: "_recipient",
+        type: "address",
+      },
+      {
+        name: "_relayer",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_fee",
+        type: "uint256",
+      },
+      {
+        name: "_refund",
+        type: "uint256",
+      },
+    ],
+    name: "withdraw",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+];
+
+const VERIFIER_ABI = [
+  {
+    inputs: [
+      {
+        name: "proof",
+        type: "bytes",
+      },
+      {
+        name: "input",
+        type: "uint256[6]",
+      },
+    ],
+    name: "verifyProof",
+    outputs: [
+      {
+        name: "",
+        type: "bool",
+      },
+    ],
+    type: "function",
+  },
+];
+
+let CHAIN_ID;
+let CHAIN_NAME;
+let CHAIN_RPC_URL;
+let BTTSCAN_URL_PREFIX;
+let CONTRACT_VERIFIER;
+let CONTRACT_TOKEN;
+
+let CONTRACT_RS_USDT_TRON_1;
+let CONTRACT_RS_USDT_TRON_10;
+let CONTRACT_RS_USDT_TRON_100;
+let CONTRACT_RS_USDT_TRON_1K;
+let CONTRACT_RS_USDT_TRON_10K;
+let CONTRACT_RS_USDT_TRON_100K;
+
+// BTTC TEST
+
+if ($("istest").text() == "1") {
+  CHAIN_ID = 1029;
+  CHAIN_NAME = "Bittorrent Chain (Test)";
+  CHAIN_RPC_URL = "https://pre-rpc.bt.io/";
+  BTTSCAN_URL_PREFIX = "https://testnet.bttcscan.com";
+  CONTRACT_VERIFIER = "0xB04627e863601Aa9283684aAda0B437B4A5C0f73";
+  CONTRACT_TOKEN = "0x7b906030735435422675e0679bc02dae7dfc71da";
+  CONTRACT_RS_USDT_TRON_1 = "0x39a95b5bbb52F1C52B863c78aF774950D9C7C645";
+  CONTRACT_RS_USDT_TRON_10 = "0xB9CBEf6e3CC883EF83C7F769bD479F479eC4BB58";
+  CONTRACT_RS_USDT_TRON_100 = "0xD8ad88AC0496dc514DaAbad7ccF68190BC54AaA2";
+  CONTRACT_RS_USDT_TRON_1K = "0x0487745cCe1125875666FbAB3e6984507FbB41B8";
+  CONTRACT_RS_USDT_TRON_10K = "0xD896bb043C8364fC2D165436efBD2764d518602e";
+  CONTRACT_RS_USDT_TRON_100K = "0x60330aEF4216cB1Fe0843e35c3F62E386c9A9B42";
+}
+
+//BTTC PROD
+if ($("istest").text() == "0") {
+  CHAIN_ID = 199;
+  CHAIN_NAME = "Bittorrent Chain";
+  CHAIN_RPC_URL = "https://rpc.bt.io";
+  BTTSCAN_URL_PREFIX = "https://bttcscan.com";
+  CONTRACT_VERIFIER = "0x4D20beC03dCDA796E66cc4D9DCCE7c710B68471C";
+  CONTRACT_TOKEN = "0xdB28719F7f938507dBfe4f0eAe55668903D34a15";
+  CONTRACT_RS_USDT_TRON_1 = "0x9c1B1e89e9ba21652C5B6618a0Ad7Db701877F3e";
+  CONTRACT_RS_USDT_TRON_10 = "0x53Ae818426FCEfc219de3255601d7E4f0cDce3Ea";
+  CONTRACT_RS_USDT_TRON_100 = "0x252A89516D2ad6E4Fad4936D6aF34293A6b05c73";
+  CONTRACT_RS_USDT_TRON_1K = "0x527e90bC235A47811f2D301B04549e208aDa2b87";
+  CONTRACT_RS_USDT_TRON_10K = "0xAbb19F930d18a8AeAfbb5A3F1d5E52D0fC7b5dB9";
+  CONTRACT_RS_USDT_TRON_100K = "0x6572Bed267B45E498bB5b46eaB2B067aE6b8a8c6";
+}
+
+const CHAIN_SYMBOL = "BTT";
+
+const RS_USDT_TRON_1 = "RS_USDT_TRON_1";
+const RS_USDT_TRON_10 = "RS_USDT_TRON_10";
+const RS_USDT_TRON_100 = "RS_USDT_TRON_100";
+const RS_USDT_TRON_1K = "RS_USDT_TRON_1K";
+const RS_USDT_TRON_10K = "RS_USDT_TRON_10K";
+const RS_USDT_TRON_100K = "RS_USDT_TRON_100K";
+
+let currentAccount;
+let currentRSAddress;
+let currentDepositStr;
+let d_amount;
+
+let feedInterval = null;
+
+const TRANSACTION_URL = BTTSCAN_URL_PREFIX + "/tx/";
+
+cropZerosRegEx = /(\.[0-9]*[1-9])0+$|\.0*$/;
+
+function shortenString(str) {
+  let short = str;
+  return short.substr(0, 5) + "..." + short.substr(short.length - 5, short.length);
+}
+
+function valueMoveCommaLeft(value, decimals) {
+  return BigNumber(value).div(10 ** decimals);
+}
+
+function adjustDecimals(strPrice) {
+  let decimals;
+  let bn = BigNumber(strPrice);
+
+  if (bn.isLessThan(1)) {
+    decimals = DECIMALS_6;
+  } else if (bn.isLessThan(10000)) {
+    decimals = DECIMALS_2;
+  } else {
+    decimals = DECIMALS_0;
+  }
+  return bn.toFixed(decimals).replace(cropZerosRegEx, "$1");
+}
+
+function numberWithCommas(x) {
+  var parts = x.toString().split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return parts.join(".");
+}
+
+function noteToClipBoard() {
+  var copyText = document.getElementById("deposit_note");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+}
+
+function setDeposit(depositStr) {
+  switch (depositStr) {
+    case RS_USDT_TRON_1:
+      currentRSAddress = CONTRACT_RS_USDT_TRON_1;
+      d_amount = 1000000;
+      break;
+    case RS_USDT_TRON_10:
+      currentRSAddress = CONTRACT_RS_USDT_TRON_10;
+      d_amount = 10000000;
+      break;
+    case RS_USDT_TRON_100:
+      currentRSAddress = CONTRACT_RS_USDT_TRON_100;
+      d_amount = 100000000;
+      break;
+    case RS_USDT_TRON_1K:
+      currentRSAddress = CONTRACT_RS_USDT_TRON_1K;
+      d_amount = 1000000000;
+      break;
+    case RS_USDT_TRON_10K:
+      currentRSAddress = CONTRACT_RS_USDT_TRON_10K;
+      d_amount = 10000000000;
+      break;
+    case RS_USDT_TRON_100K:
+      currentRSAddress = CONTRACT_RS_USDT_TRON_100K;
+      d_amount = 100000000000;
+      break;
+    default:
+      throw "Invalid Deposit Contract";
+  }
+  currentDepositStr = depositStr;
+  resetDepositNote(currentDepositStr);
+
+  $(".d_amount").text(`${numberWithCommas(BigNumber(d_amount).div(10 ** DECIMALS_TOKEN))} ${NAME_TOKEN}`);
+
+  $(".d_validationMsg").html("");
+  $(".d_validationMsg2").html("");
+  $(".w_validationMsg").html("");
+
+  $(".contractRSCodeURL").prop("href", `${BTTSCAN_URL_PREFIX}/address/${currentRSAddress}#code`);
+
+  raidshift = new web3.eth.Contract(RS_ABI, currentRSAddress);
+
+  readBalanceAndAllowance();
+}
+
+async function readBalanceAndAllowance() {
+  try {
+    const depositEvents = await raidshift.getPastEvents("Deposit", { fromBlock: 0, toBlock: "latest" });
+    await new Promise((r) => setTimeout(r, 100));
+    const withdrawalEvents = await raidshift.getPastEvents("Withdrawal", { fromBlock: 0, toBlock: "latest" });
+    await new Promise((r) => setTimeout(r, 100));
+    await token.methods
+      .balanceOf(currentAccount)
+      .call({ from: currentAccount })
+      .then(function (result) {
+        balanceToken = result;
+      });
+
+    await new Promise((r) => setTimeout(r, 100));
+    await token.methods
+      .allowance(currentAccount, currentRSAddress)
+      .call({ from: currentAccount })
+      .then(function (result) {
+        allowanceToken = result;
+      });
+
+    $(".balanceToken").text(numberWithCommas(valueMoveCommaLeft(balanceToken, DECIMALS_TOKEN).toFixed(DECIMALS_2).replace(cropZerosRegEx, "$1")));
+    $(".numDeposits").text(depositEvents.length);
+    $(".numWithdrawals").text(withdrawalEvents.length);
+  } catch (err) {
+    console.log("readBalanceAndAllowance: " + err);
+    throw err;
+  }
+}
+
+async function startFeed() {
+  try {
+    if (feedInterval == null) {
+      console.log("STARTING FEED ");
+      await readBalanceAndAllowance();
+      feedInterval = setInterval(async function () {
+        await readBalanceAndAllowance();
+      }, 10000);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function stopFeed() {
+  console.log("STOPPING FEED ");
+  if (feedInterval != null) {
+    clearInterval(feedInterval);
+    feedInterval = null;
+    console.log("balanceFeedInterval cleared");
+  }
+}
+
+function showConnectionMsg(showMsg) {
+  $(".connect-msg").prop("hidden", !showMsg);
+}
+function enableControls(enable) {
+  $("#deposit_btn").prop("disabled", !enable);
+  $("#withdraw_btn").prop("disabled", !enable);
+  $(".btn-check").prop("disabled", !enable);
+  $(".nav-link").prop("disabled", !enable);
+}
+
+function resetDepositNote(prefix) {
+  newDeposit = createDeposit({ nullifier: rbigint(31), secret: rbigint(31) });
+  const note = prefix + "_" + toHex(newDeposit.preimage, 62);
+  $("#deposit_note").val(note);
+  $("#withdraw_note").val("");
+}
+let INIT_ERROR = false;
+
+$(document).ready(async function () {
+  try {
+    showConnectionMsg(true);
+    $(".tokenName").text(NAME_TOKEN);
+    await setChain();
+    await startFeed();
+    enableControls(true);
+  } catch (err) {
+    INIT_ERROR = true;
+    console.log(`Initialization: ${err}`);
+    showConnectionMsg(true);
+    enableControls(false);
+    stopFeed();
+  }
+});
+
+ethereum.on("chainChanged", handleChainChanged);
+ethereum.on("accountsChanged", handleAccountsChanged);
+
+async function setChain() {
+  if (window.ethereum.networkVersion !== CHAIN_ID) {
+    try {
+      await window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0x" + CHAIN_ID.toString(16) }],
+      });
+    } catch (err) {
+      // if (err.code === 4902) { // does not work on mobile
+      console.log("add chain");
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainName: CHAIN_NAME,
+            chainId: "0x" + CHAIN_ID.toString(16),
+            nativeCurrency: { name: CHAIN_SYMBOL, decimals: 18, symbol: CHAIN_SYMBOL },
+            rpcUrls: [CHAIN_RPC_URL],
+          },
+        ],
+      });
+      // } else throw err;
+    }
+  }
+
+  await connect();
+  web3 = new Web3(Web3.givenProvider);
+
+  token = new web3.eth.Contract(TOKEN_ABI, CONTRACT_TOKEN);
+  verifier = new web3.eth.Contract(VERIFIER_ABI, CONTRACT_VERIFIER);
+  setDeposit(RS_USDT_TRON_10);
+  // resetDepositNote(RS_USDT_TRON_10);
+}
+
+function handleChainChanged(_chainId) {
+  window.location.reload();
+}
+
+function handleAccountsChanged(accounts) {
+  console.log("handleAccountsChanged");
+  if (INIT_ERROR || accounts.length === 0) {
+    window.location.reload();
+  } else if (accounts[0] !== currentAccount) {
+    currentAccount = accounts[0];
+    console.log("Account = " + accounts[0]);
+    showConnectionMsg(false);
+    $(".account").text(shortenString(accounts[0]));
+  }
+}
+
+async function connect() {
+  console.log("connect");
+
+  await ethereum
+    .request({ method: "eth_requestAccounts" })
+    .then(handleAccountsChanged)
+    .catch((err) => {
+      console.log(err);
+      throw err;
+    });
+}
+
+async function sendTransaction(transactionName, transactionFN, valMsg) {
+  console.log("SEND TRANSACTION (" + transactionName + ") START");
+  let transactionError = false;
+
+  $(valMsg).html(`<div class="spinner-border spinner-border-xs text-warning" role="status"><span class="visually-hidden">Waiting for signature ...</span></div><span class="text-warning">&nbsp;${transactionName}: Waiting for signature ...</span>`);
+  try {
+    let transactionId;
+    await transactionFN()
+      .send({ from: currentAccount })
+      .on("transactionHash", function (transactionHash) {
+        transactionId = transactionHash;
+        $(valMsg).html(
+          `<div class="spinner-border spinner-border-xs text-warning" role="status"><span class="visually-hidden">Waiting for confirmation ...</span></div><span class="text-warning">&nbsp;${transactionName}: Waiting for confirmation of transaction <a href="${TRANSACTION_URL}${transactionId}" target="_blank" class="text-warning">${shortenString(
+            transactionId
+          )}</a> ...</span>`
+        );
+      })
+      .on("confirmation", function (transactionHash) {
+        $(valMsg).html(`<span class="text-warning">${transactionName}: Transaction <a href="${TRANSACTION_URL}${transactionId}" target="_blank" class="text-warning">${shortenString(transactionId)}</a> confirmed.</span>`);
+      });
+  } catch (err) {
+    let msg = err.message;
+    $(valMsg).html('<span class="text-warning">' + msg + "</span>");
+    return [true, true];
+  }
+  console.log("SEND TRANSACTION (" + transactionName + ") END");
+  return [false, transactionError];
+}
+
+$(function () {
+  "use strict";
+  var depositForm = document.querySelectorAll("#deposit_form");
+  Array.prototype.slice.call(depositForm).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      async function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        let validationError = false;
+        let transactionError = false;
+
+        enableControls(false);
+
+        $(".d_validationMsg").html("");
+        $(".d_validationMsg2").html("");
+
+        console.log("approve");
+
+        if (BigNumber(d_amount).isGreaterThan(balanceToken)) {
+          $(".d_validationMsg").html(`<span class="text-warning">Your ${NAME_TOKEN} balance is too low</span>`);
+          validationError = true;
+        }
+
+        if (validationError == false) {
+          // approve TOKEN
+          if (BigNumber(d_amount).isGreaterThan(allowanceToken)) {
+            [validationError, transactionError] = await sendTransaction(
+              `<span class="fw-bold">Deposit Approval for ${NAME_TOKEN}</span>`,
+              function () {
+                return token.methods.approve(currentRSAddress, "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+              },
+              ".d_validationMsg"
+            );
+          }
+        }
+
+        console.log("deposit");
+        if (validationError == false && transactionError == false) {
+          // deposit TOKEN
+          [validationError, transactionError] = await sendTransaction(
+            `<span class="fw-bold">Deposit ${numberWithCommas(BigNumber(d_amount).div(10 ** DECIMALS_TOKEN))} ${NAME_TOKEN}</span>`,
+            function () {
+              return raidshift.methods.deposit(newDeposit.commitmentHex);
+            },
+            ".d_validationMsg2"
+          );
+        }
+
+        enableControls(true);
+      },
+      false
+    );
+  });
+});
+
+async function fetchSNARKdata() {
+  if (!circuit) {
+    circuit = await (await fetch("withdraw.json")).json();
+  }
+  if (!proving_key) {
+    proving_key = await (await fetch("withdraw_proving_key.bin")).arrayBuffer();
+  }
+  if (!groth16) {
+    groth16 = await buildGroth16();
+  }
+}
+
+$(function () {
+  "use strict";
+  var withdrawForm = document.querySelectorAll("#withdraw_form");
+  Array.prototype.slice.call(withdrawForm).forEach(function (form) {
+    form.addEventListener(
+      "submit",
+      async function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        let validationError = false;
+        let transactionError = false;
+
+        enableControls(false);
+
+        let deposit;
+        const noteString = $("#withdraw_note").val();
+
+        let withdrawRSAddress;
+
+        if (noteString.startsWith(RS_USDT_TRON_1 + "_0x")) {
+          withdrawRSAddress = CONTRACT_RS_USDT_TRON_1;
+        } else if (noteString.startsWith(RS_USDT_TRON_10 + "_0x")) {
+          withdrawRSAddress = CONTRACT_RS_USDT_TRON_10;
+        } else if (noteString.startsWith(RS_USDT_TRON_100 + "_0x")) {
+          withdrawRSAddress = CONTRACT_RS_USDT_TRON_100;
+        } else if (noteString.startsWith(RS_USDT_TRON_1K + "_0x")) {
+          withdrawRSAddress = CONTRACT_RS_USDT_TRON_1K;
+        } else if (noteString.startsWith(RS_USDT_TRON_10K + "_0x")) {
+          withdrawRSAddress = CONTRACT_RS_USDT_TRON_10K;
+        } else if (noteString.startsWith(RS_USDT_TRON_100K + "_0x")) {
+          withdrawRSAddress = CONTRACT_RS_USDT_TRON_100K;
+        } else {
+          validationError = true;
+          $(".w_validationMsg").html(`<span class="text-warning">The note starts with an invalid prefix</span>`);
+        }
+
+        console.log(withdrawRSAddress);
+
+        if (validationError == false) {
+          let noteStringTrimmed = noteString.replace(/(.*)(0x.*)/, "$2");
+
+          try {
+            deposit = parseNote(noteStringTrimmed);
+          } catch (err) {
+            $(".w_validationMsg").html(`<span class="text-warning">${err.message}</span>`);
+            validationError = true;
+          }
+        }
+
+        let w_raidshift;
+        if (validationError == false) {
+          try {
+            w_raidshift = new web3.eth.Contract(RS_ABI, withdrawRSAddress);
+          } catch (err) {
+            $(".w_validationMsg").html(`<span class="text-warning">${err.message}</span>`);
+            f;
+          }
+        }
+
+        let tree;
+        let leafIndex;
+        if (validationError == false) {
+          $(".w_validationMsg").html(
+            `<div class="spinner-border spinner-border-xs text-warning" role="status"><span class="visually-hidden">Generating zk-SNARK proof ...</span></div><span class="text-warning">&nbsp;Generating zk-SNARK proof ...</span>`
+          );
+
+          // build merkle tree
+          const events = await w_raidshift.getPastEvents("Deposit", { fromBlock: 0, toBlock: "latest" });
+          const leaves = events
+            .sort((a, b) => a.returnValues.leafIndex - b.returnValues.leafIndex) // Sort events in chronological order
+            .map((e) => e.returnValues.commitment);
+          tree = new merkleTree(MERKLE_TREE_HEIGHT, leaves);
+
+          let depositEvent = events.find((e) => e.returnValues.commitment === toHex(deposit.commitment));
+          let foundLeafIdx = depositEvent ? depositEvent.returnValues.leafIndex : -1;
+
+          if (foundLeafIdx < 0) {
+            $(".w_validationMsg").html(`<span class="text-warning">There is no deposit for this note</span>`);
+            validationError = true;
+          } else {
+            leafIndex = foundLeafIdx;
+          }
+        }
+
+        // validate Merkle Tree Root
+        if (validationError == false && transactionError == false) {
+          try {
+            let isKnownRoot;
+            await w_raidshift.methods
+              .isKnownRoot(toHex(tree.root()))
+              .call()
+              .then(function (result) {
+                isKnownRoot = result;
+              });
+            if (isKnownRoot == false) {
+              $(".w_validationMsg").html(`<span class="text-warning">Merkle tree is corrupted</span>`);
+              validationError = true;
+            }
+          } catch (err) {
+            $(".w_validationMsg").html(`<span class="text-warning">${err.message}</span>`);
+            validationError = true;
+          }
+        }
+
+        // check if not is already spent
+        if (validationError == false && transactionError == false) {
+          try {
+            let isSpent;
+            await w_raidshift.methods
+              .isSpent(deposit.nullifierHex)
+              .call()
+              .then(function (result) {
+                isSpent = result;
+              });
+            if (isSpent == true) {
+              $(".w_validationMsg").html(`<span class="text-warning">The note is already spent</span>`);
+              validationError = true;
+            }
+          } catch (err) {
+            $(".w_validationMsg").html(`<span class="text-warning">${err.message}</span>`);
+            validationError = true;
+          }
+        }
+
+        // Create zk-SNARK proof
+        let snarkProof;
+        let args;
+        if (validationError == false && transactionError == false) {
+          const { pathElements, pathIndices } = tree.path(leafIndex);
+
+          const input = {
+            // Public snark inputs
+            root: tree.root(),
+            nullifierHash: deposit.nullifierHash,
+            recipient: bigInt(currentAccount),
+            relayer: 0,
+            fee: 0,
+            refund: 0,
+
+            // Private snark inputs
+            nullifier: deposit.nullifier,
+            secret: deposit.secret,
+            pathElements: pathElements,
+            pathIndices: pathIndices,
+          };
+          try {
+            console.log("zk-SNARK proof begin");
+            await fetchSNARKdata();
+            const proofData = await websnarkUtils.genWitnessAndProve(groth16, input, circuit, proving_key);
+            const { proof } = websnarkUtils.toSolidityInput(proofData);
+            snarkProof = proof;
+            console.log("zk-SNARK proof end");
+            args = [toHex(input.root), toHex(input.nullifierHash), toHex(input.recipient, 20), toHex(input.relayer, 20), input.fee, input.refund];
+          } catch (err) {
+            $(".w_validationMsg").html(`<span class="text-warning">${err.message}</span>`);
+            console.log(err);
+            validationError = true;
+          }
+        }
+        if (validationError == false && transactionError == false) {
+          console.log("snarkProof = " + snarkProof);
+          console.log("args = " + args);
+
+          let validProof = false;
+          await verifier.methods
+            .verifyProof(snarkProof, args)
+            .call()
+            .then(function (result) {
+              validProof = result;
+            });
+
+          console.log("validProof: " + validProof);
+          if (!validProof) {
+            $(".w_validationMsg").html(`<span class="text-warning">Invalid zk-SNARK proof</span>`);
+            validationError = true;
+          }
+        }
+
+        if (validationError == false && transactionError == false) {
+          // withdraw TOKEN
+
+          [validationError, transactionError] = await sendTransaction(
+            `<span class="fw-bold">Withdraw ${NAME_TOKEN}</span>`,
+            function () {
+              return w_raidshift.methods.withdraw(snarkProof, ...args);
+            },
+            ".w_validationMsg"
+          );
+        }
+
+        resetDepositNote(currentDepositStr);
+
+        enableControls(true);
+      },
+      false
+    );
+  });
+});
