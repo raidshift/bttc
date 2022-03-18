@@ -211,6 +211,7 @@ let CONTRACT_RS_USDT_TRON_1K;
 let CONTRACT_RS_USDT_TRON_10K;
 let CONTRACT_RS_USDT_TRON_100K;
 
+
 // BTTC TEST
 
 if ($("istest").text() == "1") {
@@ -226,6 +227,10 @@ if ($("istest").text() == "1") {
   CONTRACT_RS_USDT_TRON_1K = "0x0487745cCe1125875666FbAB3e6984507FbB41B8";
   CONTRACT_RS_USDT_TRON_10K = "0xD896bb043C8364fC2D165436efBD2764d518602e";
   CONTRACT_RS_USDT_TRON_100K = "0x60330aEF4216cB1Fe0843e35c3F62E386c9A9B42";
+  $(".rs_link").attr("href", "/");
+  $(".rs_link").html(`<i class="bi bi-boxes"></i>&nbsp;Main Net`);
+
+  $(".contractRSCodeURL").prop("href", `${BTTSCAN_URL_PREFIX}/address/${CONTRACT_RS_USDT_TRON_10}#code`);
 }
 
 //BTTC PROD
@@ -242,6 +247,10 @@ if ($("istest").text() == "0") {
   CONTRACT_RS_USDT_TRON_1K = "0x527e90bC235A47811f2D301B04549e208aDa2b87";
   CONTRACT_RS_USDT_TRON_10K = "0xAbb19F930d18a8AeAfbb5A3F1d5E52D0fC7b5dB9";
   CONTRACT_RS_USDT_TRON_100K = "0x6572Bed267B45E498bB5b46eaB2B067aE6b8a8c6";
+  $(".rs_link").attr("href", "/test");
+  $(".rs_link").html(`<i class="bi bi-boxes"></i>&nbsp;Test Net`);
+
+  $(".contractRSCodeURL").prop("href", `${BTTSCAN_URL_PREFIX}/address/${CONTRACT_RS_USDT_TRON_10}#code`);
 }
 
 const CHAIN_SYMBOL = "BTT";
