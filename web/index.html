@@ -73,14 +73,15 @@
               </div>
 
               <div class="fw-bold fst-italic mt-4 mb-0 ps-md-4 text-light">
-                <a href="" target="#" class="link-light" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="text-decoration: none">
-                  a fully decentralized protocol for private transactions on BitTorrent-Chain ... <i class="bi bi-caret-down-fill text-primary"></i>
+                a fully decentralized protocol for private transactions on BitTorrent-Chain.<br />
+                <a href="" target="#" class="link-light" data-bs-toggle="collapse" data-bs-target="#collapseExample" style="text-decoration: none">
+                  <span class="text-primary small">read more ...</span>
                 </a>
               </div>
 
               <div class="collapse ps-md-4 mt-1" id="collapseExample">
                 <div class="card card-body border-0 p-0 text-light" style="background: none !important">
-                  <ul style="font-size: small">
+                  <ul style="font-size: small;font-weight: bold;">
                     <li class="mt-3">Raidshift is a fully decentralized protocol for private transactions on BitTorrent-Chain (BTTC) forked from <a href="https://tornado.cash/" target="_blank" class="link-primary">Tornado Cash</a>.</li>
                     <li class="mt-2">Its smart contracts are immutable, have no admins, and the proofs are based on strong cryptography (zk-SNARKs). Only a user possessing a private note is able to link deposit and withdrawal of tokens.</li>
                     <li class="mt-2">Raidshift supports following token deposits: <span class="tokenName">USDT</span>.</li>
@@ -110,25 +111,25 @@
 
                     <div class="btn-group mb-0" role="group">
                       <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_1" autocomplete="off" onclick="setDeposit('RS_USDT_TRON_1')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1" style="border-width: 2px">1</label>
+                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1" style="border-width: 1px">1</label>
 
                       <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_10" autocomplete="off" onclick="setDeposit('RS_USDT_TRON_10')" checked />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10" style="border-width: 2px">10</label>
+                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10" style="border-width: 1px">10</label>
 
                       <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_100" autocomplete="off" onclick="setDeposit('RS_USDT_TRON_100')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100" style="border-width: 2px">100</label>
+                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100" style="border-width: 1px">100</label>
 
                       <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_1000" autocomplete="off" onclick="setDeposit('RS_USDT_TRON_1K')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1000" style="border-width: 2px">1k</label>
+                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1000" style="border-width: 1px">1k</label>
 
                       <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_10k" autocomplete="off" onclick="setDeposit('RS_USDT_TRON_10K')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10k" style="border-width: 2px">10k</label>
+                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10k" style="border-width: 1px">10k</label>
 
                       <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_100k" autocomplete="off" onclick="setDeposit('RS_USDT_TRON_100K')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100k" style="border-width: 2px">100k</label>
+                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100k" style="border-width: 1px">100k</label>
                     </div>
 
-                    <div class="p-0 mb-4 text-primary fw-bold" style="font-size: x-small">Deposits: <span class="numDeposits">0</span>&nbsp;&nbsp;|&nbsp;&nbsp;Withdrawals: <span class="numWithdrawals">0</span></div>
+                    <div class="p-0 mb-4 text-primary fw-bold" style="font-size: x-small"><span class="d_amount"></span>:&nbsp;&nbsp;&nbsp;<span class="numDeposits">0</span>&nbsp;deposits&nbsp;/&nbsp;<span class="numWithdrawals">0</span>&nbsp;withdrawals</div>
 
                     <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-card-text"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
                     <div class="input-group mb-3">
@@ -175,7 +176,7 @@
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <a class="link-secondary" href="https://github.com/raidshift/bttc" target="_blank"><i class="bi bi-github"></i>&nbsp;GitHub</a>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <span class="link-secondary">build <build>14</build></span>
+            <span class="link-secondary">build <build>15</build></span>
             <istest hidden>0</istest>
           </div>
         </div>
