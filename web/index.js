@@ -232,7 +232,7 @@ if ($("istest").text() == "1") {
   CONTRACT_1K = "0x0487745cCe1125875666FbAB3e6984507FbB41B8";
   CONTRACT_10K = "0xD896bb043C8364fC2D165436efBD2764d518602e";
   CONTRACT_100K = "0x60330aEF4216cB1Fe0843e35c3F62E386c9A9B42";
-  RS_USD = "RS_USDT";
+  RS_USD = "RS_USD";
   $(".rs_link").attr("href", "/");
   $(".rs_link").html(`<i class="bi bi-boxes"></i>&nbsp;Main Net`);
 
@@ -256,7 +256,7 @@ if ($("istest").text() == "0") {
   CONTRACT_1K = "0x86E77Da8AE959B7f4fc23d67Df1eF28d634b0B26";
   CONTRACT_10K = "0xBa64d8e4fc336680D8C06EB78e3E4E1779C0B77b";
   CONTRACT_100K = "0x618d8FCb77F0bA854343beE93179292aac0B4cD5";
-  RS_USD = "RS_USDD";
+  RS_USD = "RS_USD";
   $(".rs_link").attr("href", "/test");
   $(".rs_link").html(`<i class="bi bi-boxes"></i>&nbsp;Test Net`);
 
