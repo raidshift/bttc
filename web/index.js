@@ -1,4 +1,4 @@
-let DECIMALS_TOKEN = 6;
+
 
 let newDeposit;
 const MERKLE_TREE_HEIGHT = 20;
@@ -210,11 +210,13 @@ let CONTRACT_RS_USDT_TRON_1K;
 let CONTRACT_RS_USDT_TRON_10K;
 let CONTRACT_RS_USDT_TRON_100K;
 
+let DECIMALS_TOKEN;
 let NAME_TOKEN;
 
 // BTTC TEST
 
 if ($("istest").text() == "1") {
+  DECIMALS_TOKEN = 6;
   NAME_TOKEN = "USDT_t";
   $("#swap_from_img").prop("src","USDT_128.png"); 
   CHAIN_ID = 1029;
@@ -237,6 +239,7 @@ if ($("istest").text() == "1") {
 
 //BTTC PROD
 if ($("istest").text() == "0") {
+  DECIMALS_TOKEN = 18;
   NAME_TOKEN = "USDD_t";
   $("#swap_from_img").prop("src","USDD.png"); 
   CHAIN_ID = 199;
@@ -317,27 +320,27 @@ function setDeposit(depositStr) {
   switch (depositStr) {
     case RS_USDT_TRON_1:
       currentRSAddress = CONTRACT_RS_USDT_TRON_1;
-      d_amount = 1000000;
+      d_amount = 1*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_10:
       currentRSAddress = CONTRACT_RS_USDT_TRON_10;
-      d_amount = 10000000;
+      d_amount = 10*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_100:
       currentRSAddress = CONTRACT_RS_USDT_TRON_100;
-      d_amount = 100000000;
+      d_amount = 100*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_1K:
       currentRSAddress = CONTRACT_RS_USDT_TRON_1K;
-      d_amount = 1000000000;
+      d_amount = 1000*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_10K:
       currentRSAddress = CONTRACT_RS_USDT_TRON_10K;
-      d_amount = 10000000000;
+      d_amount = 10000*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_100K:
       currentRSAddress = CONTRACT_RS_USDT_TRON_100K;
-      d_amount = 100000000000;
+      d_amount = 100000*10**DECIMALS_TOKEN;
       break;
     default:
       throw "Invalid Deposit Contract";
