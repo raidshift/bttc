@@ -203,12 +203,12 @@ let BTTSCAN_URL_PREFIX;
 let CONTRACT_VERIFIER;
 let CONTRACT_TOKEN;
 
-let CONTRACT_RS_USDT_TRON_1;
-let CONTRACT_RS_USDT_TRON_10;
-let CONTRACT_RS_USDT_TRON_100;
-let CONTRACT_RS_USDT_TRON_1K;
-let CONTRACT_RS_USDT_TRON_10K;
-let CONTRACT_RS_USDT_TRON_100K;
+let CONTRACT_1;
+let CONTRACT_10;
+let CONTRACT_100;
+let CONTRACT_1K;
+let CONTRACT_10K;
+let CONTRACT_100K;
 
 let DECIMALS_TOKEN;
 let NAME_TOKEN;
@@ -226,17 +226,17 @@ if ($("istest").text() == "1") {
   BTTSCAN_URL_PREFIX = "https://testnet.bttcscan.com";
   CONTRACT_VERIFIER = "0xB04627e863601Aa9283684aAda0B437B4A5C0f73";
   CONTRACT_TOKEN = "0x7b906030735435422675e0679bc02dae7dfc71da";
-  CONTRACT_RS_USDT_TRON_1 = "0x39a95b5bbb52F1C52B863c78aF774950D9C7C645";
-  CONTRACT_RS_USDT_TRON_10 = "0xB9CBEf6e3CC883EF83C7F769bD479F479eC4BB58";
-  CONTRACT_RS_USDT_TRON_100 = "0xD8ad88AC0496dc514DaAbad7ccF68190BC54AaA2";
-  CONTRACT_RS_USDT_TRON_1K = "0x0487745cCe1125875666FbAB3e6984507FbB41B8";
-  CONTRACT_RS_USDT_TRON_10K = "0xD896bb043C8364fC2D165436efBD2764d518602e";
-  CONTRACT_RS_USDT_TRON_100K = "0x60330aEF4216cB1Fe0843e35c3F62E386c9A9B42";
+  CONTRACT_1 = "0x39a95b5bbb52F1C52B863c78aF774950D9C7C645";
+  CONTRACT_10 = "0xB9CBEf6e3CC883EF83C7F769bD479F479eC4BB58";
+  CONTRACT_100 = "0xD8ad88AC0496dc514DaAbad7ccF68190BC54AaA2";
+  CONTRACT_1K = "0x0487745cCe1125875666FbAB3e6984507FbB41B8";
+  CONTRACT_10K = "0xD896bb043C8364fC2D165436efBD2764d518602e";
+  CONTRACT_100K = "0x60330aEF4216cB1Fe0843e35c3F62E386c9A9B42";
   RS_USD = "RS_USDT";
   $(".rs_link").attr("href", "/");
   $(".rs_link").html(`<i class="bi bi-boxes"></i>&nbsp;Main Net`);
 
-  $(".contractRSCodeURL").prop("href", `${BTTSCAN_URL_PREFIX}/address/${CONTRACT_RS_USDT_TRON_10}#code`);
+  $(".contractRSCodeURL").prop("href", `${BTTSCAN_URL_PREFIX}/address/${CONTRACT_10}#code`);
 }
 
 //BTTC PROD
@@ -250,17 +250,17 @@ if ($("istest").text() == "0") {
   BTTSCAN_URL_PREFIX = "https://bttcscan.com";
   CONTRACT_VERIFIER = "0x4D20beC03dCDA796E66cc4D9DCCE7c710B68471C";
   CONTRACT_TOKEN = "0x17F235FD5974318E4E2a5e37919a209f7c37A6d1";
-  CONTRACT_RS_USDT_TRON_1 = "0xB04627e863601Aa9283684aAda0B437B4A5C0f73";
-  CONTRACT_RS_USDT_TRON_10 = "0x315CAF38e98E53eE0D8A5F69056CA4688D8d6730";
-  CONTRACT_RS_USDT_TRON_100 = "0x01fb366A3b3d1281A243c798B2Fb9Cc43B2F3985";
-  CONTRACT_RS_USDT_TRON_1K = "0x86E77Da8AE959B7f4fc23d67Df1eF28d634b0B26";
-  CONTRACT_RS_USDT_TRON_10K = "0xBa64d8e4fc336680D8C06EB78e3E4E1779C0B77b";
-  CONTRACT_RS_USDT_TRON_100K = "0x618d8FCb77F0bA854343beE93179292aac0B4cD5";
+  CONTRACT_1 = "0xB04627e863601Aa9283684aAda0B437B4A5C0f73";
+  CONTRACT_10 = "0x315CAF38e98E53eE0D8A5F69056CA4688D8d6730";
+  CONTRACT_100 = "0x01fb366A3b3d1281A243c798B2Fb9Cc43B2F3985";
+  CONTRACT_1K = "0x86E77Da8AE959B7f4fc23d67Df1eF28d634b0B26";
+  CONTRACT_10K = "0xBa64d8e4fc336680D8C06EB78e3E4E1779C0B77b";
+  CONTRACT_100K = "0x618d8FCb77F0bA854343beE93179292aac0B4cD5";
   RS_USD = "RS_USDD";
   $(".rs_link").attr("href", "/test");
   $(".rs_link").html(`<i class="bi bi-boxes"></i>&nbsp;Test Net`);
 
-  $(".contractRSCodeURL").prop("href", `${BTTSCAN_URL_PREFIX}/address/${CONTRACT_RS_USDT_TRON_10}#code`);
+  $(".contractRSCodeURL").prop("href", `${BTTSCAN_URL_PREFIX}/address/${CONTRACT_10}#code`);
 }
 
 const CHAIN_SYMBOL = "BTT";
@@ -322,27 +322,27 @@ function noteToClipBoard() {
 function setDeposit(depositStr) {
   switch (depositStr) {
     case RS_USDT_TRON_1:
-      currentRSAddress = CONTRACT_RS_USDT_TRON_1;
+      currentRSAddress = CONTRACT_1;
       d_amount = 1*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_10:
-      currentRSAddress = CONTRACT_RS_USDT_TRON_10;
+      currentRSAddress = CONTRACT_10;
       d_amount = 10*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_100:
-      currentRSAddress = CONTRACT_RS_USDT_TRON_100;
+      currentRSAddress = CONTRACT_100;
       d_amount = 100*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_1K:
-      currentRSAddress = CONTRACT_RS_USDT_TRON_1K;
+      currentRSAddress = CONTRACT_1K;
       d_amount = 1000*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_10K:
-      currentRSAddress = CONTRACT_RS_USDT_TRON_10K;
+      currentRSAddress = CONTRACT_10K;
       d_amount = 10000*10**DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_100K:
-      currentRSAddress = CONTRACT_RS_USDT_TRON_100K;
+      currentRSAddress = CONTRACT_100K;
       d_amount = 100000*10**DECIMALS_TOKEN;
       break;
     default:
@@ -635,17 +635,17 @@ $(function () {
         let withdrawRSAddress;
 
         if (noteString.startsWith(RS_USDT_TRON_1 + "_0x")) {
-          withdrawRSAddress = CONTRACT_RS_USDT_TRON_1;
+          withdrawRSAddress = CONTRACT_1;
         } else if (noteString.startsWith(RS_USDT_TRON_10 + "_0x")) {
-          withdrawRSAddress = CONTRACT_RS_USDT_TRON_10;
+          withdrawRSAddress = CONTRACT_10;
         } else if (noteString.startsWith(RS_USDT_TRON_100 + "_0x")) {
-          withdrawRSAddress = CONTRACT_RS_USDT_TRON_100;
+          withdrawRSAddress = CONTRACT_100;
         } else if (noteString.startsWith(RS_USDT_TRON_1K + "_0x")) {
-          withdrawRSAddress = CONTRACT_RS_USDT_TRON_1K;
+          withdrawRSAddress = CONTRACT_1K;
         } else if (noteString.startsWith(RS_USDT_TRON_10K + "_0x")) {
-          withdrawRSAddress = CONTRACT_RS_USDT_TRON_10K;
+          withdrawRSAddress = CONTRACT_10K;
         } else if (noteString.startsWith(RS_USDT_TRON_100K + "_0x")) {
-          withdrawRSAddress = CONTRACT_RS_USDT_TRON_100K;
+          withdrawRSAddress = CONTRACT_100K;
         } else {
           validationError = true;
           $(".w_validationMsg").html(`<span class="text-warning">The note starts with an invalid prefix</span>`);
