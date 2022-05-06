@@ -644,6 +644,9 @@ $(function () {
           withdrawRSAddress = CONTRACT_10K;
         } else if (noteString.startsWith(RS_USDT_TRON_100K + "_0x")) {
           withdrawRSAddress = CONTRACT_100K;
+        } else if (!noteString) {
+          validationError = true;
+          $(".w_validationMsg").html(`<span class="text-warning">Please provide a note</span>`);
         } else {
           validationError = true;
           $(".w_validationMsg").html(`<span class="text-warning">The note starts with an invalid prefix</span>`);
