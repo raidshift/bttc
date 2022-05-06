@@ -134,17 +134,17 @@
 
                     <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control bg-primary text-light" id="deposit_note" style="border-width: 0; font-size: small" disabled />
+                      <input type="text" class="form-control text-light border-primary fw-bold" id="deposit_note" style="background-color:rgba(0,0,0,0) !important;font-size: small" disabled />
                       <span class="input-group-text bg-primary pt-0 pb-0 ps-0 pe-0" id="basic-addon1" style="border-width: 0">
                         <button type="button" class="btn btn-sm" onclick="noteToClipBoard()"><i class="bi bi-clipboard-fill text-light"></i></button>
                       </span>
                     </div>
-                    <div class="fs-6 mb-5 p-1 text-center border rounded border-light">
-                      <div class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Store your private note in a safe place</div>
-                      <span class="text-light">
+                    <div class="fs-6 mb-3 p-1 text-center">
+                      <div class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Store private note in a safe place</div>
+                      <!-- <span class="text-light" style="font-size: small;">
                         Your note provides a record of your original transaction. Anyone who has it can withdraw the funds deposited, but also know the deposit address. Be sure to keep this note away from prying eyes and store it in a secure
                         environment.
-                      </span>
+                      </span> -->
                     </div>
                     <button type="submit" class="btn btn btn-danger fw-bold float-end mb-3" id="deposit_btn" disabled><i class="bi bi-box-arrow-in-right"></i> Deposit <span class="d_amount"></span></button>
                     <div class="d_validationMsg" style="font-size: small"></div>
@@ -156,7 +156,7 @@
                   <form id="withdraw_form">
                     <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i></i>&nbsp;&nbsp;PRIVATE NOTE</p>
                     <div class="input-group mb-5">
-                      <input type="text" class="form-control bg-primary text-light" placeholder="Please enter your private note of your deposit" id="withdraw_note" style="border-width: 0; font-size: small" />
+                      <input type="text" class="form-control text-light border-primary fw-bold" placeholder="Enter private note of your deposit" id="withdraw_note" style="background-color:rgba(0,0,0,0) !important; font-size: small" />
                     </div>
                     <button type="submit" class="btn btn btn-success fw-bold float-end mb-3" id="withdraw_btn" disabled><i class="bi bi-box-arrow-right"></i> Withdraw</button>
                     <div class="w_validationMsg" style="font-size: small"></div>
@@ -177,7 +177,7 @@
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <a class="link-secondary" href="https://github.com/raidshift/bttc" target="_blank"><i class="bi bi-github"></i>&nbsp;GitHub</a>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <span class="link-secondary">build <build>23</build></span>
+            <span class="link-secondary">build <build>24</build></span>
             <istest hidden>1</istest>
           </div>
         </div>
