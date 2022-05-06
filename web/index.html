@@ -61,13 +61,13 @@
                 <span class="account text-light float-end pt-2" style="font-size: small"></span>
                 <div class="connect-msg float-end pt-2" style="font-size: small; display: flex; align-items: center">
                   <div class="spinner-border spinner-border-xs text-light" role="status">
-                    <span class="visually-hidden">Connecting Web3 Wallet</span>
+                    <span class="visually-hidden">Connecting Browser Wallet</span>
                   </div>
-                  <span class="text-light">&nbsp;&nbsp;Connecting Web3 Wallet</span>
+                  <span class="text-light">&nbsp;&nbsp;Connecting Browser Wallet</span>
                 </div>
 
                 <div style="display: flex; align-items: center">
-                  <img src="raidshift.png" height="32px" width="32px" alt="" />
+                  <img src="raidshift.png" height="48px" width="48px" alt="" />
                   &nbsp;<span class="fw-bold fst-italic">raidshift</span>&nbsp;<span class="text-danger p-1" style="font-size: small"><onlytest></onlytest></span>
                 </div>
               </div>
@@ -81,7 +81,7 @@
 
               <div class="collapse ps-md-5 mt-2" id="collapseExample">
                 <div class="card card-body border-0 p-0 text-light" style="background: none !important">
-                  <ul style="font-size: small;" class="fst-italic">
+                  <ul style="font-size: small" class="fst-italic">
                     <li class="mt-3">Raidshift is a fully decentralized protocol for private transactions on BitTorrent-Chain (BTTC) forked from <a href="https://tornado.cash/" target="_blank" class="link-primary">Tornado Cash</a>.</li>
                     <li class="mt-2">Its smart contracts are immutable, have no admins, and the proofs are based on strong cryptography (zk-SNARKs).</li>
                     <li class="mt-2">Only a user possessing a private note is able to link deposit and withdrawal of tokens.</li>
@@ -106,9 +106,18 @@
               <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active border-top pt-4" id="pills-home" role="tabpanel">
                   <form id="deposit_form">
-                    <div class="fs-6 mb-1 fw-bold text-light" style="display: flex; align-items: center;">
-                      <img id="swap_from_img" src="USDD.png" height="32" width="32" />&nbsp;&nbsp;<span class="tokenName">USDD</span>
-                      <span style="font-size: x-small">&nbsp;&nbsp;(Your balance: <span class="balanceToken">0</span>)</span>
+                    <div class="fs-6 mb-1 fw-bold text-ligh pt-0" style="display: flex; align-items: center">
+                      <img id="swap_from_img" src="USDD.png" height="32" width="32" />
+                      <div class="row">
+                        <div class="col-12">&nbsp;&nbsp;<span class="tokenName">USDD</span></div>
+                        <div class="col-12">
+                          &nbsp;&nbsp;<span class="text-light align-text-bottom" style="font-size: small">Your balance: <span class="balanceToken">0</span></span>
+                        </div>
+
+                        <!-- <div class="row border">
+                          <span style="font-size: x-small">&nbsp;&nbsp;(Your balance: <span class="balanceToken">0</span>)</span>
+                        </div> -->
+                      </div>
                     </div>
 
                     <div class="btn-group mb-0" role="group">
@@ -131,21 +140,19 @@
                       <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100k" style="border-width: 1px">100k</label>
                     </div>
 
-                    <div class="p-0 mb-4 text-primary fw-bold" style="font-size: x-small"><span class="d_amount">10 USDT</span>:&nbsp;&nbsp;&nbsp;<span class="numDeposits">0</span>&nbsp;deposits&nbsp;|&nbsp;<span class="numWithdrawals">0</span>&nbsp;withdrawals</div>
+                    <div class="p-0 mb-4 text-primary fw-bold" style="font-size: x-small">
+                      <span class="d_amount">10 USDT</span>:&nbsp;&nbsp;&nbsp;<span class="numDeposits">0</span>&nbsp;deposits&nbsp;|&nbsp;<span class="numWithdrawals">0</span>&nbsp;withdrawals
+                    </div>
 
                     <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control text-light border-primary fw-bold" id="deposit_note" style="background-color:rgba(0,0,0,0) !important;font-size: small" disabled />
+                      <input type="text" class="form-control text-light border-primary fw-bold" id="deposit_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" disabled />
                       <span class="input-group-text bg-primary pt-0 pb-0 ps-0 pe-0" id="basic-addon1" style="border-width: 0">
                         <button type="button" class="btn btn-sm" onclick="noteToClipBoard()"><i class="bi bi-clipboard-fill text-light"></i></button>
                       </span>
                     </div>
                     <div class="fs-6 mb-3 p-1 text-center">
                       <div class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Store private note of your deposit in a safe place</div>
-                      <!-- <span class="text-light" style="font-size: small;">
-                        Your note provides a record of your original transaction. Anyone who has it can withdraw the funds deposited, but also know the deposit address. Be sure to keep this note away from prying eyes and store it in a secure
-                        environment.
-                      </span> -->
                     </div>
                     <button type="submit" class="btn btn btn-danger fw-bold float-end mb-3" id="deposit_btn" disabled><i class="bi bi-box-arrow-in-right"></i> Deposit <span class="d_amount"></span></button>
                     <div class="d_validationMsg" style="font-size: small"></div>
@@ -155,9 +162,9 @@
 
                 <div class="tab-pane fade border-top pt-4" id="pills-profile" role="tabpanel">
                   <form id="withdraw_form">
-                    <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i></i>&nbsp;&nbsp;PRIVATE NOTE</p>
+                    <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
                     <div class="input-group mb-5">
-                      <input type="text" class="form-control text-light border-primary fw-bold" placeholder="Enter private note of your deposit" id="withdraw_note" style="background-color:rgba(0,0,0,0) !important; font-size: small" />
+                      <input type="text" class="form-control text-light border-primary fw-bold" placeholder="Enter private note of your deposit" id="withdraw_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" />
                     </div>
                     <button type="submit" class="btn btn btn-success fw-bold float-end mb-3" id="withdraw_btn" disabled><i class="bi bi-box-arrow-right"></i> Withdraw</button>
                     <div class="w_validationMsg" style="font-size: small"></div>
@@ -178,7 +185,7 @@
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <a class="link-secondary" href="https://github.com/raidshift/bttc" target="_blank"><i class="bi bi-github"></i>&nbsp;GitHub</a>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <span class="link-secondary">build <build>27</build></span>
+            <span class="link-secondary">build <build>28</build></span>
             <istest hidden>0</istest>
           </div>
         </div>

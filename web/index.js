@@ -1,5 +1,3 @@
-
-
 let newDeposit;
 const MERKLE_TREE_HEIGHT = 20;
 let circuit;
@@ -219,7 +217,7 @@ let RS_USD = "RS_USDD";
 if ($("istest").text() == "1") {
   DECIMALS_TOKEN = 6;
   NAME_TOKEN = "USDT_t";
-  $("#swap_from_img").prop("src","USDT_128.png"); 
+  $("#swap_from_img").prop("src", "USDT_128.png");
   CHAIN_ID = 1029;
   CHAIN_NAME = "Bittorrent Chain (Test)";
   CHAIN_RPC_URL = "https://pre-rpc.bt.io/";
@@ -242,7 +240,7 @@ if ($("istest").text() == "1") {
 if ($("istest").text() == "0") {
   DECIMALS_TOKEN = 18;
   NAME_TOKEN = "USDD_t";
-  $("#swap_from_img").prop("src","USDD.png"); 
+  $("#swap_from_img").prop("src", "USDD.png");
   CHAIN_ID = 199;
   CHAIN_NAME = "Bittorrent Chain";
   CHAIN_RPC_URL = "https://rpc.bt.io";
@@ -321,27 +319,27 @@ function setDeposit(depositStr) {
   switch (depositStr) {
     case RS_USDT_TRON_1:
       currentRSAddress = CONTRACT_1;
-      d_amount = 1*10**DECIMALS_TOKEN;
+      d_amount = 1 * 10 ** DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_10:
       currentRSAddress = CONTRACT_10;
-      d_amount = 10*10**DECIMALS_TOKEN;
+      d_amount = 10 * 10 ** DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_100:
       currentRSAddress = CONTRACT_100;
-      d_amount = 100*10**DECIMALS_TOKEN;
+      d_amount = 100 * 10 ** DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_1K:
       currentRSAddress = CONTRACT_1K;
-      d_amount = 1000*10**DECIMALS_TOKEN;
+      d_amount = 1000 * 10 ** DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_10K:
       currentRSAddress = CONTRACT_10K;
-      d_amount = 10000*10**DECIMALS_TOKEN;
+      d_amount = 10000 * 10 ** DECIMALS_TOKEN;
       break;
     case RS_USDT_TRON_100K:
       currentRSAddress = CONTRACT_100K;
-      d_amount = 100000*10**DECIMALS_TOKEN;
+      d_amount = 100000 * 10 ** DECIMALS_TOKEN;
       break;
     default:
       throw "Invalid Deposit Contract";
