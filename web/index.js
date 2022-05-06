@@ -234,6 +234,7 @@ if ($("istest").text() == "1") {
   $(".rs_link").html(`<i class="bi bi-boxes"></i>&nbsp;Main Net`);
 
   $(".contractRSCodeURL").prop("href", `${BTTSCAN_URL_PREFIX}/address/${CONTRACT_10}#code`);
+  $(".contractTokenURL").prop("href", `${BTTSCAN_URL_PREFIX}/token/${CONTRACT_TOKEN}#code`);
 }
 
 //BTTC PROD
@@ -257,6 +258,7 @@ if ($("istest").text() == "0") {
   $(".rs_link").html(`<i class="bi bi-boxes"></i>&nbsp;Test Net`);
 
   $(".contractRSCodeURL").prop("href", `${BTTSCAN_URL_PREFIX}/address/${CONTRACT_10}#code`);
+  $(".contractTokenURL").prop("href", `${BTTSCAN_URL_PREFIX}/token/${CONTRACT_TOKEN}#code`);
 }
 
 const CHAIN_SYMBOL = "BTT";
