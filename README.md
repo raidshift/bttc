@@ -2,7 +2,7 @@
 
 * Raidshift is a fully decentralized protocol for private transactions on BitTorrent-Chain (BTTC) forked from https://tornado.cash/.
 * Its smart contracts are immutable, have no admins, and the proofs are based on strong cryptography (zk-SNARKs). Only a user possessing a private note is able to link deposit and withdrawal of tokens.
-* Raidshift supports following token deposits: USDT_t.
+* Raidshift supports following token deposits: USDD_t.
 * Tornado Cashs's Relayer functionality is currently not supported.
 * Neither Raidshift nor any other party collects protocol fees from deposits or withdrawals - the protocol is free of charge.
 
