@@ -1,215 +1,202 @@
 <!DOCTYPE html>
 <html lang="en" style="height: 100vh">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/darkly/bootstrap.min.css"
-      integrity="sha512-ZdxIsDOtKj2Xmr/av3D/uo1g15yxNFjkhrcfLooZV5fW0TT7aF7Z3wY1LOA16h0VgFLwteg14lWqlYUQK3to/w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
-      integrity="sha512-Oy+sz5W86PK0ZIkawrG0iv7XwWhYecM3exvUtMKNJMekGFJtVAhibhRPTpmyTj8+lJCkmWfnpxKgT2OopquBHA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <title>raidshift</title>
-  </head>
-  <style>
-    body {
-      font-family: roboto;
-    }
-    .btn {
-      outline: none;
-      box-shadow: none !important;
-    }
-    input[type="text"] {
-      outline: 0px !important;
-      -webkit-appearance: none;
-      box-shadow: none !important;
-    }
-    .spinner-border-xs {
-      width: 0.9rem;
-      height: 0.9rem;
-      border-width: 0.15em;
-    }
-    .jumbo {
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-      background: linear-gradient(215deg, rgba(41, 49, 80, 0.342) 10%, rgba(43, 82, 82, 0.308) 100%);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
-    }
-    .label-btn-check {
-      width: 55px;
-    }
-  </style>
 
-  <body style="min-height: 100vh">
-    <div class="container main">
-      <div class="py-4">
-        <div class="row g-4">
-          <div class="col-12">
-            <div class="fs-5 px-sm-5 px-3 pt-5 pb-5 mb-0 jumbo">
-              <div class="container-fluid p-0 fs-2">
-                <span class="account text-light float-end pt-2" style="font-size: small"></span>
-                <div class="connect-msg float-end pt-2" style="font-size: small; display: flex; align-items: center">
-                  <div class="spinner-border spinner-border-xs text-light" role="status">
-                    <span class="visually-hidden">Connecting Browser Wallet</span>
-                  </div>
-                  <span class="text-light">&nbsp;&nbsp;Connecting Browser Wallet</span>
-                </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.3/darkly/bootstrap.min.css" integrity="sha512-ZdxIsDOtKj2Xmr/av3D/uo1g15yxNFjkhrcfLooZV5fW0TT7aF7Z3wY1LOA16h0VgFLwteg14lWqlYUQK3to/w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" integrity="sha512-Oy+sz5W86PK0ZIkawrG0iv7XwWhYecM3exvUtMKNJMekGFJtVAhibhRPTpmyTj8+lJCkmWfnpxKgT2OopquBHA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <title>raidshift</title>
+</head>
+<style>
+  body {
+    font-family: roboto;
+  }
 
-                <div style="display: flex; align-items: center">
-                  <img src="raidshift.png" height="48px" width="48px" alt="" />
-                  &nbsp;<span class="fw-bold fst-italic">raidshift</span>&nbsp;<span class="text-danger p-1" style="font-size: small"><onlytest></onlytest></span>
+  .btn {
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  input[type="text"] {
+    outline: 0px !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+  }
+
+  .spinner-border-xs {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-width: 0.15em;
+  }
+
+  .jumbo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    background: linear-gradient(215deg, rgba(41, 49, 80, 0.342) 10%, rgba(43, 82, 82, 0.308) 100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  .label-btn-check {
+    width: 55px;
+  }
+</style>
+
+<body style="min-height: 100vh">
+  <div class="container main">
+    <div class="py-4">
+      <div class="row g-4">
+        <div class="col-12">
+          <div class="fs-5 px-sm-5 px-3 pt-5 pb-5 mb-0 jumbo">
+            <div class="container-fluid p-0 fs-2">
+              <span class="account text-light float-end pt-2" style="font-size: small"></span>
+              <div class="connect-msg float-end pt-2" style="font-size: small; display: flex; align-items: center">
+                <div class="spinner-border spinner-border-xs text-light" role="status">
+                  <span class="visually-hidden">Connecting Browser Wallet</span>
                 </div>
+                <span class="text-light">&nbsp;&nbsp;Connecting Browser Wallet</span>
               </div>
 
-              <div class="fw-bold fst-italic mt-4 mb-0 ps-md-4 text-light">
-                a fully decentralized protocol for private transactions on BitTorrent-Chain.<br />
-                <a href="" target="#" class="link-light" data-bs-toggle="collapse" data-bs-target="#collapseExample" style="text-decoration: none">
-                  <span class="text-primary small ps-md-5">read more <i class="bi bi-arrow-right-short"></i></span>
-                </a>
+              <div style="display: flex; align-items: center">
+                <img src="raidshift.png" height="48px" width="48px" alt="" />
+                &nbsp;<span class="fw-bold fst-italic">raidshift</span>&nbsp;<span class="text-danger p-1" style="font-size: small">
+                  <onlytest></onlytest>
+                </span>
               </div>
+            </div>
 
-              <div class="collapse ps-md-5 mt-2" id="collapseExample">
-                <div class="card card-body border-0 p-0 text-light" style="background: none !important">
-                  <ul style="font-size: small" class="fst-italic">
-                    <li class="mt-3">Raidshift is a fully decentralized protocol for private transactions on BitTorrent-Chain (BTTC) forked from <a href="https://tornado.cash/" target="_blank" class="link-primary">Tornado Cash</a>.</li>
-                    <li class="mt-2">Its smart contracts are immutable, have no admins, and the proofs are based on strong cryptography (zk-SNARKs).</li>
-                    <li class="mt-2">Only a user possessing a private note is able to link deposit and withdrawal of tokens.</li>
-                    <li class="mt-2">Raidshift supports following token deposits: <a href="" target="_blank" class="link-primary contractTokenURL"><span class="tokenName">USDT</span></a>.</li>
-                    <li class="mt-2">Tornado Cash's Relayer functionality is currently not supported.</li>
-                    <li class="mt-2">Neither Raidshift nor any other party collects protocol fees from deposits or withdrawals - the protocol is free of charge.</li>
-                  </ul>
-                </div>
+            <div class="fw-bold fst-italic mt-4 mb-0 ps-md-4 text-light">
+              a fully decentralized protocol for private transactions on BitTorrent-Chain.<br />
+              <a href="" target="#" class="link-light" data-bs-toggle="collapse" data-bs-target="#collapseExample" style="text-decoration: none">
+                <span class="text-primary small ps-md-5">read more <i class="bi bi-arrow-right-short"></i></span>
+              </a>
+            </div>
+
+            <div class="collapse ps-md-5 mt-2" id="collapseExample">
+              <div class="card card-body border-0 p-0 text-light" style="background: none !important">
+                <ul style="font-size: small" class="fst-italic">
+                  <li class="mt-3">Raidshift is a fully decentralized protocol for private transactions on BitTorrent-Chain (BTTC) forked from <a href="https://tornado.cash/" target="_blank" class="link-primary">Tornado Cash</a>.</li>
+                  <li class="mt-2">Its smart contracts are immutable, have no admins, and the proofs are based on strong cryptography (zk-SNARKs).</li>
+                  <li class="mt-2">Only a user possessing a private note is able to link deposit and withdrawal of tokens.</li>
+                  <li class="mt-2">Raidshift supports following token deposits: <a href="" target="_blank" class="link-primary contractTokenURL"><span class="tokenName">USDT</span></a>.</li>
+                  <li class="mt-2">Tornado Cash's Relayer functionality is currently not supported.</li>
+                  <li class="mt-2">Neither Raidshift nor any other party collects protocol fees from deposits or withdrawals - the protocol is free of charge.</li>
+                </ul>
               </div>
+            </div>
 
-              <div class="mb-5"></div>
+            <div class="mb-5"></div>
 
-              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active fw-bold" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab">Deposit</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link fw-bold" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab">Withdraw</button>
-                </li>
-              </ul>
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab">Deposit</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab">Withdraw</button>
+              </li>
+            </ul>
 
-              <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active border-top pt-4" id="pills-home" role="tabpanel">
-                  <form id="deposit_form">
-                    <div class="fs-6 mb-1 fw-bold text-ligh pt-0" style="display: flex; align-items: center">
-                      <img id="swap_from_img" src="USDD.png" height="32" width="32" />
-                      <div class="row">
-                        <div class="col-12">&nbsp;&nbsp;<span class="tokenName">USDD</span></div>
-                        <div class="col-12">
-                          &nbsp;&nbsp;<span class="text-light align-text-bottom" style="font-size: small">Your balance: <span class="balanceToken">0</span></span>
-                        </div>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active border-top pt-4" id="pills-home" role="tabpanel">
+                <form id="deposit_form" autocomplete="off">
+                  <div class="fs-6 mb-1 fw-bold text-ligh pt-0" style="display: flex; align-items: center">
+                    <img id="swap_from_img" src="USDD.png" height="32" width="32" />
+                    <div class="row">
+                      <div class="col-12">&nbsp;&nbsp;<span class="tokenName">USDD</span></div>
+                      <div class="col-12">
+                        &nbsp;&nbsp;<span class="text-light align-text-bottom" style="font-size: small">Your balance: <span class="balanceToken">0</span></span>
+                      </div>
 
-                        <!-- <div class="row border">
+                      <!-- <div class="row border">
                           <span style="font-size: x-small">&nbsp;&nbsp;(Your balance: <span class="balanceToken">0</span>)</span>
                         </div> -->
-                      </div>
                     </div>
+                  </div>
 
-                    <div class="btn-group mb-0" role="group">
-                      <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_1" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_1')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1" style="border-width: 1px">1</label>
+                  <div class="btn-group mb-0" role="group">
+                    <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_1" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_1')" />
+                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1" style="border-width: 1px">1</label>
 
-                      <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_10" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_10')" checked />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10" style="border-width: 1px">10</label>
+                    <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_10" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_10')" checked />
+                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10" style="border-width: 1px">10</label>
 
-                      <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_100" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_100')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100" style="border-width: 1px">100</label>
+                    <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_100" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_100')" />
+                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100" style="border-width: 1px">100</label>
 
-                      <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_1000" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_1K')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1000" style="border-width: 1px">1k</label>
+                    <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_1000" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_1K')" />
+                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1000" style="border-width: 1px">1k</label>
 
-                      <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_10k" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_10K')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10k" style="border-width: 1px">10k</label>
+                    <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_10k" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_10K')" />
+                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10k" style="border-width: 1px">10k</label>
 
-                      <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_100k" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_100K')" />
-                      <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100k" style="border-width: 1px">100k</label>
-                    </div>
+                    <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_100k" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_100K')" />
+                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100k" style="border-width: 1px">100k</label>
+                  </div>
 
-                    <div class="p-0 mb-4 text-primary fw-bold" style="font-size: x-small">
-                      <span class="d_amount">10 USDT</span>:&nbsp;&nbsp;&nbsp;<span class="numDeposits">0</span>&nbsp;deposits&nbsp;|&nbsp;<span class="numWithdrawals">0</span>&nbsp;withdrawals
-                    </div>
+                  <div class="p-0 mb-4 text-primary fw-bold" style="font-size: x-small">
+                    <span class="d_amount">10 USDT</span>:&nbsp;&nbsp;&nbsp;<span class="numDeposits">0</span>&nbsp;deposits&nbsp;|&nbsp;<span class="numWithdrawals">0</span>&nbsp;withdrawals
+                  </div>
 
-                    <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control text-light border-primary fw-bold" id="deposit_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" disabled />
-                      <span class="input-group-text bg-primary pt-0 pb-0 ps-0 pe-0" id="basic-addon1" style="border-width: 0">
-                        <button type="button" class="btn btn-sm" onclick="noteToClipBoard()"><i class="bi bi-clipboard-fill text-light"></i></button>
-                      </span>
-                    </div>
-                    <div class="fs-6 mb-3 p-1 text-center">
-                      <div class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Store private note of your deposit in a safe place</div>
-                    </div>
-                    <button type="submit" class="btn btn btn-danger fw-bold float-end mb-3" id="deposit_btn" disabled><i class="bi bi-box-arrow-in-right"></i> Deposit <span class="d_amount"></span></button>
-                    <div class="d_validationMsg" style="font-size: small"></div>
-                    <div class="d_validationMsg2" style="font-size: small"></div>
-                  </form>
-                </div>
+                  <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control text-light border-primary fw-bold" id="deposit_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" disabled />
+                    <span class="input-group-text bg-primary pt-0 pb-0 ps-0 pe-0" id="basic-addon1" style="border-width: 0">
+                      <button type="button" class="btn btn-sm" onclick="noteToClipBoard()"><i class="bi bi-clipboard-fill text-light"></i></button>
+                    </span>
+                  </div>
+                  <div class="fs-6 mb-3 p-1 text-center">
+                    <div class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Store private note of your deposit in a safe place</div>
+                  </div>
+                  <button type="submit" class="btn btn btn-danger fw-bold float-end mb-3" id="deposit_btn" disabled><i class="bi bi-box-arrow-in-right"></i> Deposit <span class="d_amount"></span></button>
+                  <div class="d_validationMsg" style="font-size: small"></div>
+                  <div class="d_validationMsg2" style="font-size: small"></div>
+                </form>
+              </div>
 
-                <div class="tab-pane fade border-top pt-4" id="pills-profile" role="tabpanel">
-                  <form id="withdraw_form">
-                    <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
-                    <div class="input-group mb-5">
-                      <input type="text" class="form-control text-light border-primary fw-bold" placeholder="Enter private note of your deposit" id="withdraw_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" />
-                    </div>
-                    <button type="submit" class="btn btn btn-success fw-bold float-end mb-3" id="withdraw_btn" disabled><i class="bi bi-box-arrow-right"></i> Withdraw</button>
-                    <div class="w_validationMsg" style="font-size: small"></div>
-                  </form>
-                </div>
+              <div class="tab-pane fade border-top pt-4" id="pills-profile" role="tabpanel">
+                <form id="withdraw_form" autocomplete="off">
+                  <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
+                  <div class="input-group mb-5">
+                    <input type="text" class="form-control text-light border-primary fw-bold" placeholder="Enter private note of your deposit" id="withdraw_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" />
+                  </div>
+                  <button type="submit" class="btn btn btn-success fw-bold float-end mb-3" id="withdraw_btn" disabled><i class="bi bi-box-arrow-right"></i> Withdraw</button>
+                  <div class="w_validationMsg" style="font-size: small"></div>
+                </form>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="col-12 text-center mt-3 text-secondary" style="font-size: small">
-            <a href="" target="" class="link-secondary rs_link"></a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <a class="contractRSCodeURL link-secondary" href="" target="_blank"><i class="bi bi-box"></i>&nbsp;Contract</a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <a class="link-secondary" href="https://twitter.com/raidshift" target="_blank"><i class="bi bi-twitter"></i>&nbsp;Twitter</a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <a class="link-secondary" href="https://t.me/raidshift_bttc" target="_blank"><i class="bi bi-telegram"></i>&nbsp;Telegram</a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <a class="link-secondary" href="https://github.com/raidshift/bttc" target="_blank"><i class="bi bi-github"></i>&nbsp;GitHub</a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <span class="link-secondary">build <build>30</build></span>
-            <istest hidden>0</istest>
-          </div>
+        <div class="col-12 text-center mt-3 text-secondary" style="font-size: small">
+          <a href="" target="" class="link-secondary rs_link"></a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a class="contractRSCodeURL link-secondary" href="" target="_blank"><i class="bi bi-box"></i>&nbsp;Contract</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a class="link-secondary" href="https://twitter.com/raidshift" target="_blank"><i class="bi bi-twitter"></i>&nbsp;Twitter</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a class="link-secondary" href="https://t.me/raidshift_bttc" target="_blank"><i class="bi bi-telegram"></i>&nbsp;Telegram</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a class="link-secondary" href="https://github.com/raidshift/bttc" target="_blank"><i class="bi bi-github"></i>&nbsp;GitHub</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <span class="link-secondary">build <build>31</build></span>
+          <istest hidden>0</istest>
         </div>
       </div>
     </div>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/9.0.1/bignumber.min.js"
-      integrity="sha512-3dEpIO2t/6beQ77U/aYgVqJpmSkcvWuTFO4WhCQrSi2tSQV3U+k4plwSKlVOxKibsnd6Z/0evmClsMl4LVZ7Ig=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/9.0.1/bignumber.min.js" integrity="sha512-3dEpIO2t/6beQ77U/aYgVqJpmSkcvWuTFO4WhCQrSi2tSQV3U+k4plwSKlVOxKibsnd6Z/0evmClsMl4LVZ7Ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js"
-      integrity="sha512-ewfXo9Gq53e1q1+WDTjaHAGZ8UvCWq0eXONhwDuIoaH8xz2r96uoAYaQCm1oQhnBfRXrvJztNXFsTloJfgbL5Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.min.js" integrity="sha512-ewfXo9Gq53e1q1+WDTjaHAGZ8UvCWq0eXONhwDuIoaH8xz2r96uoAYaQCm1oQhnBfRXrvJztNXFsTloJfgbL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.1/web3.min.js" integrity="sha512-GKw4QT/RccGJIwQxY3MhyiQ5pHrhQ8SuKFEafV+WcpOvtz7iYFQuQGFCvmGlHLctJTe8KrWU1FqvF7VOkEAJtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.1/web3.min.js" integrity="sha512-GKw4QT/RccGJIwQxY3MhyiQ5pHrhQ8SuKFEafV+WcpOvtz7iYFQuQGFCvmGlHLctJTe8KrWU1FqvF7VOkEAJtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="rs.js"></script>
-    <script src="index.js"></script>
-  </body>
+  <script src="rs.js"></script>
+  <script src="index.js"></script>
+</body>
+
 </html>
