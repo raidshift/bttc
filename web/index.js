@@ -318,8 +318,8 @@ function noteToClipBoard() {
 }
 
 function setDeposit(depositStr) {
-  $(".numDeposits").text("-");
-  $(".numWithdrawals").text("-");
+  $(".numDeposits").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>`);
+  $(".numWithdrawals").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>`);
   switch (depositStr) {
     case RS_USDT_TRON_1:
       currentRSAddress = CONTRACT_1;
