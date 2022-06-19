@@ -500,7 +500,7 @@ function handleAccountsChanged(accounts) {
     currentAccount = accounts[0];
     console.log("Account = " + accounts[0]);
     showConnectionMsg(false);
-    $(".account").text(shortenString(accounts[0]));
+    $(".account").html(`<div style="display: flex; align-items: center"><img src="bttc.svg" height="20px" width="20px" alt="" /><span>&nbsp;${shortenString(accounts[0])}</span></div>`);
   }
 }
 
