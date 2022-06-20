@@ -123,10 +123,10 @@
             <div class="tab-content" id="pills-tabContent">
               <div class="tab-pane fade show active border-top pt-4" id="pills-home" role="tabpanel">
                 <form id="deposit_form" autocomplete="off">
-                  <div class="fs-6 mb-1 fw-bold text-ligh pt-0" style="display: flex; align-items: center">
+                  <div class="fs-6 mb-1 fw-bold text-light pt-0" style="display: flex; align-items: center">
                     <img id="swap_from_img" src="USDD.png" height="32" width="32" />
                     <div class="row">
-                      <div class="col-12">&nbsp;&nbsp;<span class="text-light tokenName">USDD</span></div>
+                      <div class="col-12">&nbsp;&nbsp;<span class="tokenName">USDD</span></div>
                       <div class="col-12">
                         &nbsp;&nbsp;<span class="text-light align-text-bottom" style="font-size: small">Your balance: <span class="balanceToken">0</span></span>
                       </div>
@@ -135,7 +135,7 @@
 
                   <div class="btn-group mb-0" role="group">
                     <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_1" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_1')" />
-                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1" style="border-width: 1px">1</label>
+                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_1" style="border-width: 1px;border-top-left-radius: 0.25rem;border-bottom-left-radius: 0rem">1</label>
 
                     <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_10" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_10')" checked />
                     <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10" style="border-width: 1px">10</label>
@@ -150,19 +150,25 @@
                     <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_10k" style="border-width: 1px">10k</label>
 
                     <input type="radio" class="btn-check" name="btnradio_d" id="btnradio_d_100k" autocomplete="off" onclick="setDeposit('RS_USDD_TRON_100K')" />
-                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100k" style="border-width: 1px">100k</label>
+                    <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100k" style="border-width: 1px;border-top-right-radius: 0.25rem;border-bottom-right-radius: 0rem">100k</label>
                   </div>
 
-                  <div class="p-0 mb-4 text-primary fw-bold" style="font-size: x-small">
-                    <span class="d_amount">10 USDT</span>:&nbsp;&nbsp;&nbsp;<span class="numDeposits">
+                  <div class="p-2 mb-4 text-light bg-primary fw-bold" style="margin-left:-1px;font-size: small;width: 325px;border-bottom-left-radius: 0.25rem;border-bottom-right-radius: 0.25rem;display: flex; align-items: center;">
+                    <!-- <span class="d_amount">10 USDT</span>:&nbsp;&nbsp;&nbsp; -->
+                    <div class="numDeposits" style="display: flex; align-items: center;">
                       <div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>
-                    </span>&nbsp;deposits&nbsp;|&nbsp;<span class="numWithdrawals">
+                      <span>&nbsp;Deposits&nbsp;|&nbsp;</span>
+                    </div>
+                    
+                    <div class="numWithdrawals" style="display: flex; align-items: center;">
                       <div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>
-                    </span>&nbsp;withdrawals
+                      <span>&nbsp;Withdrawals</span>
+                    </div>
+                    
                   </div>
 
                   <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
-                  <div class="input-group mb-3">
+                  <div class="input-group mb-3" style="margin-left:-1px">
                     <input type="text" class="form-control text-light border-primary fw-bold" id="deposit_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" disabled />
                     <span class="input-group-text bg-primary pt-0 pb-0 ps-0 pe-0" id="basic-addon1" style="border-width: 0">
                       <button type="button" class="btn btn-sm" onclick="noteToClipBoard()"><i class="bi bi-clipboard-fill text-light"></i></button>
@@ -180,7 +186,7 @@
               <div class="tab-pane fade border-top pt-4" id="pills-profile" role="tabpanel">
                 <form id="withdraw_form" autocomplete="off">
                   <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
-                  <div class="input-group mb-5">
+                  <div class="input-group mb-5" style="margin-left:-1px">
                     <input type="text" class="form-control text-light border-primary fw-bold" placeholder="Enter private note of your deposit" id="withdraw_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" />
                   </div>
                   <button type="submit" class="btn btn btn-success fw-bold float-end mb-3" id="withdraw_btn" disabled><i class="bi bi-box-arrow-right"></i> Withdraw</button>
@@ -202,7 +208,7 @@
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <a class="link-secondary" href="https://github.com/raidshift/bttc" target="_blank"><i class="bi bi-github"></i>&nbsp;GitHub</a>
           &nbsp;&nbsp;|&nbsp;&nbsp;
-          <span class="link-secondary">build <build>42</build></span>
+          <span class="link-secondary">build <build>43</build></span>
           <istest hidden>1</istest>
         </div>
       </div>

@@ -318,8 +318,8 @@ function noteToClipBoard() {
 }
 
 function setDeposit(depositStr) {
-  $(".numDeposits").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>`);
-  $(".numWithdrawals").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>`);
+  $(".numDeposits").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div><span>&nbsp;Deposits&nbsp;|&nbsp;</span>`);
+  $(".numWithdrawals").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div><span>&nbsp;Withdrawals</span>`);
   switch (depositStr) {
     case RS_USDT_TRON_1:
       currentRSAddress = CONTRACT_1;
@@ -386,8 +386,8 @@ async function readBalanceAndAllowance() {
       });
 
     $(".balanceToken").text(numberWithCommas(valueMoveCommaLeft(balanceToken, DECIMALS_TOKEN).toFixed(DECIMALS_2).replace(cropZerosRegEx, "$1")));
-    $(".numDeposits").text(depositEvents.length);
-    $(".numWithdrawals").text(withdrawalEvents.length);
+    $(".numDeposits").html(`<span>${depositEvents.length}&nbsp;Deposits&nbsp;|&nbsp;</span>`);
+    $(".numWithdrawals").html(`<span>${withdrawalEvents.length}&nbsp;Withdrawals</span>`);
   } catch (err) {
     console.log("readBalanceAndAllowance: " + err);
     throw err;
