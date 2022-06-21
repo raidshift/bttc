@@ -320,8 +320,8 @@ function noteToClipBoard() {
 function setDeposit(depositStr) {
   $(".numDeposits").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div><span>&nbsp;Deposits&nbsp;|&nbsp;</span>`);
   $(".numWithdrawals").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div><span>&nbsp;Withdrawals</span>`);
-  $(".latestDeposits").html(`<span class="text-decoration-underline">Latest deposits:</span><br><div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span>`);
-  $(".latestWithdrawals").html(`<span class="text-decoration-underline">Latest withdrawals:</span><br><div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span>`);
+  $(".latestDeposits").html(`<span class="text-decoration-underline">Latest deposits:</span><br><div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>`);
+  $(".latestWithdrawals").html(`<span class="text-decoration-underline">Latest withdrawals:</span><br><div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>`);
   switch (depositStr) {
     case RS_USDT_TRON_1:
       currentRSAddress = CONTRACT_1;
