@@ -35,7 +35,6 @@
   .spinner-border-xxs {
     width: 0.5rem;
     height: 0.5rem;
-    /* border-width: 0.15em; */
   }
 
   .jumbo {
@@ -48,6 +47,30 @@
 
   .label-btn-check {
     width: 55px;
+  }
+
+  .accordion-item {
+    background-color: #375a7f;
+    border: 0px;
+  }
+
+  .accordion-button {
+    background-color: #375a7f;
+    color: #adb5bd !important;
+    box-shadow: none !important;
+  }
+
+  .accordion-button:not(.collapsed) {
+    background-color: #375a7f;
+    color: #adb5bd !important;
+  }
+
+  .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23adb5bd'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  }
+
+  .accordion-button.collapsed::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23adb5bd'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   }
 </style>
 
@@ -153,18 +176,33 @@
                     <label class="btn btn-outline-primary text-light fw-bold label-btn-check ps-0 pe-0" for="btnradio_d_100k" style="border-width: 1px;border-top-right-radius: 0.25rem;border-bottom-right-radius: 0rem">100k</label>
                   </div>
 
-                  <div class="p-2 mb-4 text-light bg-primary fw-bold" style="margin-left:-1px;font-size: small;width: 325px;border-bottom-left-radius: 0.25rem;border-bottom-right-radius: 0.25rem;display: flex; align-items: center;">
-                    <!-- <span class="d_amount">10 USDT</span>:&nbsp;&nbsp;&nbsp; -->
-                    <div class="numDeposits" style="display: flex; align-items: center;">
-                      <div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>
-                      <span>&nbsp;Deposits&nbsp;|&nbsp;</span>
+                  <div class="p-2 mb-4 text-light bg-primary" style="margin-left:-1px;font-size: small;width: 325px;border-bottom-left-radius: 0.25rem;border-bottom-right-radius: 0.25rem;">
+                    <div class="accordion" id="accordionDepositsWithdrawals">
+                      <div class="accordion-item">
+                        <div class="accordion-header" id="flush-headingOne">
+                          <button class="accordion-button collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <div style="display: flex; align-items: center;font-size: small;" class="fw-bold">
+                              <div class="numDeposits" style="display: flex; align-items: center;">
+                                <div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>
+                                <span>&nbsp;Deposits&nbsp;|&nbsp;</span>
+                              </div>
+                              <div class="numWithdrawals" style="display: flex; align-items: center;">
+                                <div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>
+                                <span>&nbsp;Withdrawals</span>
+                              </div>
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionDepositsWithdrawals">
+                        <div class="container p-0 mt-2">
+                          <div class="row">
+                            <div class="latestDeposits col"></div>
+                            <div class="latestWithdrawals col"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    
-                    <div class="numWithdrawals" style="display: flex; align-items: center;">
-                      <div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div>
-                      <span>&nbsp;Withdrawals</span>
-                    </div>
-                    
                   </div>
 
                   <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
@@ -208,7 +246,7 @@
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <a class="link-secondary" href="https://github.com/raidshift/bttc" target="_blank"><i class="bi bi-github"></i>&nbsp;GitHub</a>
           &nbsp;&nbsp;|&nbsp;&nbsp;
-          <span class="link-secondary">build <build>43</build></span>
+          <span class="link-secondary">build <build>44</build></span>
           <istest hidden>0</istest>
         </div>
       </div>

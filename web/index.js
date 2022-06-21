@@ -320,6 +320,8 @@ function noteToClipBoard() {
 function setDeposit(depositStr) {
   $(".numDeposits").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div><span>&nbsp;Deposits&nbsp;|&nbsp;</span>`);
   $(".numWithdrawals").html(`<div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span></div><span>&nbsp;Withdrawals</span>`);
+  $(".latestDeposits").html(`<span class="text-decoration-underline">Latest deposits:</span><br><div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span>`);
+  $(".latestWithdrawals").html(`<span class="text-decoration-underline">Latest withdrawals:</span><br><div class="spinner-grow spinner-border-xxs" role="status"><span class="visually-hidden">Loading...</span>`);
   switch (depositStr) {
     case RS_USDT_TRON_1:
       currentRSAddress = CONTRACT_1;
@@ -388,6 +390,62 @@ async function readBalanceAndAllowance() {
     $(".balanceToken").text(numberWithCommas(valueMoveCommaLeft(balanceToken, DECIMALS_TOKEN).toFixed(DECIMALS_2).replace(cropZerosRegEx, "$1")));
     $(".numDeposits").html(`<span>${depositEvents.length}&nbsp;Deposits&nbsp;|&nbsp;</span>`);
     $(".numWithdrawals").html(`<span>${withdrawalEvents.length}&nbsp;Withdrawals</span>`);
+
+    let now = Date.now();
+
+    latestDepositEvents = depositEvents.slice(-5).reverse();
+    latestWithdrawalEvents = withdrawalEvents.slice(-5).reverse();
+
+    let latestDepositsHTML = `<span class="text-decoration-underline">Latest deposits:</span><span class="fst-italic">`
+    let latestWithdrawalsHTML = `<span class="text-decoration-underline">Latest withdrawals:</span><span class="fst-italic">`
+
+    let id = depositEvents.length;
+    for (const event of latestDepositEvents) {
+      let delta = now - (await web3.eth.getBlock(event.blockNumber)).timestamp * 1000;
+      let days = Math.floor(delta / (1000 * 3600 * 24));
+      let hours = Math.floor(delta / (1000 * 3600));
+      let minutes = Math.floor(delta / (1000 * 60));
+      if (days > 0) {
+        latestDepositsHTML = latestDepositsHTML.concat(`<br>${id}: ${days} day(s) ago`)
+      }
+      else if (hours > 0) {
+        latestDepositsHTML = latestDepositsHTML.concat(`<br>${id}: ${hours} hour(s) ago`)
+      }
+      else {
+        latestDepositsHTML = latestDepositsHTML.concat(`<br>${id}: ${minutes} minute(s) ago`)
+      }
+      id--;
+    }
+    if(latestDepositEvents.length==0) {
+      latestDepositsHTML = latestDepositsHTML.concat(`<br>none`);
+    }
+    latestDepositsHTML = latestDepositsHTML.concat(`</span>`);
+
+    id = withdrawalEvents.length;
+    for (const event of latestWithdrawalEvents) {
+      let delta = now - (await web3.eth.getBlock(event.blockNumber)).timestamp * 1000;
+      let days = Math.floor(delta / (1000 * 3600 * 24));
+      let hours = Math.floor(delta / (1000 * 3600));
+      let minutes = Math.floor(delta / (1000 * 60));
+      if (days > 0) {
+        latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>${id}: ${days} day(s) ago`)
+      }
+      else if (hours > 0) {
+        latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>${id}: ${hours} hour(s) ago`)
+      }
+      else {
+        latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>${id}: ${minutes} minute(s) ago`)
+      }
+      id--;
+    }
+    if(latestDepositEvents.length==0) {
+      latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>none`);
+    }
+    latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`</span>`);
+
+    $(".latestDeposits").html(latestDepositsHTML);
+    $(".latestWithdrawals").html(latestWithdrawalsHTML);
+
   } catch (err) {
     console.log("readBalanceAndAllowance: " + err);
     throw err;
