@@ -317,10 +317,12 @@ function noteToClipBoard() {
   let copyText = document.getElementById("deposit_note");
   copyText.select();
   copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-
-  let toast = new bootstrap.Toast(document.getElementById('copyToast'))
-  toast.show()
+  navigator.clipboard.writeText(copyText.value).then(() => {
+    let toast = new bootstrap.Toast(document.getElementById('copyToast'))
+    toast.show()
+  }).catch(() => {
+    alert("Could not copy to clipboard !");
+  });
 }
 
 function setDeposit(depositStr) {
