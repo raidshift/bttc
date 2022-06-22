@@ -215,7 +215,11 @@
                       </div>
                     </div>
                   </div>
-
+                  <div id="copyToast" class="toast float-end" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="1000" style="width:auto">
+                    <div class="toast-header bg-warning text-dark rounded-3 pt-0 pb-0">
+                      <span class="fw-bold">Copied to clipboard !</span>
+                    </div>
+                  </div>
                   <p class="fs-6 mb-1 fw-bold text-light"><i class="bi bi-file-earmark-lock"></i>&nbsp;&nbsp;PRIVATE NOTE</p>
                   <div class="input-group mb-3" style="margin-left:-1px">
                     <input type="text" class="form-control text-light border-primary fw-bold" id="deposit_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" disabled />
@@ -223,13 +227,15 @@
                       <button type="button" class="btn btn-sm" onclick="noteToClipBoard()"><i class="bi bi-clipboard-fill text-light"></i></button>
                     </span>
                   </div>
+
                   <div class="fs-6 mb-3 p-1 text-center">
                     <div class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> Store private note of your deposit in a safe place</div>
                   </div>
-                  <button type="submit" class="btn btn btn-danger fw-bold float-end mb-3" id="deposit_btn" disabled><i class="bi bi-box-arrow-in-right"></i> Deposit <span class="d_amount"></span></button>
+                  <button type="submit" class="btn btn-danger fw-bold float-end mb-3" id="deposit_btn" disabled><i class="bi bi-box-arrow-in-right"></i> Deposit <span class="d_amount"></span></button>
                   <div class="d_validationMsg" style="font-size: small"></div>
                   <div class="d_validationMsg2" style="font-size: small"></div>
                 </form>
+
               </div>
 
               <div class="tab-pane fade border-top pt-4" id="pills-profile" role="tabpanel">
@@ -238,7 +244,7 @@
                   <div class="input-group mb-5" style="margin-left:-1px">
                     <input type="text" class="form-control text-light border-primary fw-bold" placeholder="Enter private note of your deposit" id="withdraw_note" style="background-color: rgba(0, 0, 0, 0) !important; font-size: small" />
                   </div>
-                  <button type="submit" class="btn btn btn-success fw-bold float-end mb-3" id="withdraw_btn" disabled><i class="bi bi-box-arrow-right"></i> Withdraw</button>
+                  <button type="submit" class="btn btn-success fw-bold float-end mb-3" id="withdraw_btn" disabled><i class="bi bi-box-arrow-right"></i> Withdraw</button>
                   <div class="w_validationMsg" style="font-size: small"></div>
                 </form>
               </div>
@@ -257,9 +263,10 @@
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <a class="link-secondary" href="https://github.com/raidshift/bttc" target="_blank"><i class="bi bi-github"></i>&nbsp;GitHub</a>
           &nbsp;&nbsp;|&nbsp;&nbsp;
-          <span class="link-secondary">build <build>48</build></span>
+          <span class="link-secondary">build <build>49</build></span>
           <istest hidden>0</istest>
         </div>
+
       </div>
     </div>
   </div>
@@ -273,6 +280,7 @@
 
   <script src="rs.js"></script>
   <script src="index.js"></script>
+
 </body>
 
 </html>

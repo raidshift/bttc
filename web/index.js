@@ -281,10 +281,10 @@ const TRANSACTION_URL = BTTSCAN_URL_PREFIX + "/tx/";
 
 cropZerosRegEx = /(\.[0-9]*[1-9])0+$|\.0*$/;
 
-function shortenString(str,by,start,sep) {
-  if(!by) {by=5}
-  if(!start) {start=0}
-  if(!sep) {sep="..."}
+function shortenString(str, by, start, sep) {
+  if (!by) { by = 5 }
+  if (!start) { start = 0 }
+  if (!sep) { sep = "..." }
   let short = str;
   return short.substr(start, by) + sep + short.substr(short.length - by, short.length);
 }
@@ -314,10 +314,13 @@ function numberWithCommas(x) {
 }
 
 function noteToClipBoard() {
-  var copyText = document.getElementById("deposit_note");
+  let copyText = document.getElementById("deposit_note");
   copyText.select();
   copyText.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(copyText.value);
+
+  let toast = new bootstrap.Toast(document.getElementById('copyToast'))
+  toast.show()
 }
 
 function setDeposit(depositStr) {
@@ -403,7 +406,7 @@ async function readBalanceAndAllowance() {
     let latestWithdrawalsHTML = `<span class="fw-bold">Latest withdrawals:</span><span>`
 
     for (const event of latestDepositEvents) {
-      let shortTransactionHash = event.transactionHash.substr(0,6)+"..";
+      let shortTransactionHash = event.transactionHash.substr(0, 6) + "..";
       let a = `<a class="link-light" href="${BTTSCAN_URL_PREFIX}/tx/${event.transactionHash}" target="_blank">`
 
       let delta = now - (await web3.eth.getBlock(event.blockNumber)).timestamp * 1000;
@@ -430,7 +433,7 @@ async function readBalanceAndAllowance() {
     latestDepositsHTML = latestDepositsHTML.concat(`</span>`);
 
     for (const event of latestWithdrawalEvents) {
-      let shortTransactionHash = event.transactionHash.substr(0,6)+"..";
+      let shortTransactionHash = event.transactionHash.substr(0, 6) + "..";
       let a = `<a class="link-light" href="${BTTSCAN_URL_PREFIX}/tx/${event.transactionHash}" target="_blank">`
 
       let delta = now - (await web3.eth.getBlock(event.blockNumber)).timestamp * 1000;
