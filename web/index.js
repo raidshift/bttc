@@ -281,9 +281,12 @@ const TRANSACTION_URL = BTTSCAN_URL_PREFIX + "/tx/";
 
 cropZerosRegEx = /(\.[0-9]*[1-9])0+$|\.0*$/;
 
-function shortenString(str) {
+function shortenString(str,by,start,sep) {
+  if(!by) {by=5}
+  if(!start) {start=0}
+  if(!sep) {sep="..."}
   let short = str;
-  return short.substr(0, 5) + "..." + short.substr(short.length - 5, short.length);
+  return short.substr(start, by) + sep + short.substr(short.length - by, short.length);
 }
 
 function valueMoveCommaLeft(value, decimals) {
@@ -399,8 +402,10 @@ async function readBalanceAndAllowance() {
     let latestDepositsHTML = `<span class="fw-bold">Latest deposits:</span><span>`
     let latestWithdrawalsHTML = `<span class="fw-bold">Latest withdrawals:</span><span>`
 
-    let id = depositEvents.length;
     for (const event of latestDepositEvents) {
+      let shortTransactionHash = event.transactionHash.substr(0,6)+"..";
+      let a = `<a class="link-light" href="${BTTSCAN_URL_PREFIX}/tx/${event.transactionHash}" target="_blank">`
+
       let delta = now - (await web3.eth.getBlock(event.blockNumber)).timestamp * 1000;
       let days = Math.floor(delta / (1000 * 3600 * 24));
       let hours = Math.floor(delta / (1000 * 3600));
@@ -408,25 +413,26 @@ async function readBalanceAndAllowance() {
       let s = ""
       if (days > 0) {
         if (days != 1) { s = "s" }
-        latestDepositsHTML = latestDepositsHTML.concat(`<br>${id}: ${days} day${s} ago`)
+        latestDepositsHTML = latestDepositsHTML.concat(`<br>${a}${shortTransactionHash}</a> ${days} day${s} ago`)
       }
       else if (hours > 0) {
         if (hours != 1) { s = "s" }
-        latestDepositsHTML = latestDepositsHTML.concat(`<br>${id}: ${hours} hour${s} ago`)
+        latestDepositsHTML = latestDepositsHTML.concat(`<br>${a}${shortTransactionHash}</a> ${hours} hour${s} ago`)
       }
       else {
         if (minutes != 1) { s = "s" }
-        latestDepositsHTML = latestDepositsHTML.concat(`<br>${id}: ${minutes} minute${s} ago`)
+        latestDepositsHTML = latestDepositsHTML.concat(`<br>${a}${shortTransactionHash}</a> ${minutes} minute${s} ago`)
       }
-      id--;
     }
     if (latestDepositEvents.length == 0) {
       latestDepositsHTML = latestDepositsHTML.concat(`<br>none`);
     }
     latestDepositsHTML = latestDepositsHTML.concat(`</span>`);
 
-    id = withdrawalEvents.length;
     for (const event of latestWithdrawalEvents) {
+      let shortTransactionHash = event.transactionHash.substr(0,6)+"..";
+      let a = `<a class="link-light" href="${BTTSCAN_URL_PREFIX}/tx/${event.transactionHash}" target="_blank">`
+
       let delta = now - (await web3.eth.getBlock(event.blockNumber)).timestamp * 1000;
       let days = Math.floor(delta / (1000 * 3600 * 24));
       let hours = Math.floor(delta / (1000 * 3600));
@@ -434,17 +440,16 @@ async function readBalanceAndAllowance() {
       let s = ""
       if (days > 0) {
         if (days != 1) { s = "s" }
-        latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>${id}: ${days} day${s} ago`)
+        latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>${a}${shortTransactionHash}</a> ${days} day${s} ago`)
       }
       else if (hours > 0) {
         if (hours != 1) { s = "s" }
-        latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>${id}: ${hours} hour${s} ago`)
+        latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>${a}${shortTransactionHash}</a> ${hours} hour${s} ago`)
       }
       else {
         if (minutes != 1) { s = "s" }
-        latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>${id}: ${minutes} minute${s} ago`)
+        latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>${a}${shortTransactionHash}</a> ${minutes} minute${s} ago`)
       }
-      id--;
     }
     if (latestDepositEvents.length == 0) {
       latestWithdrawalsHTML = latestWithdrawalsHTML.concat(`<br>none`);
